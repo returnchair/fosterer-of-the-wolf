@@ -14,7 +14,7 @@ return 0;
 }
 
 void Intro(){
-    cout << "Welcome to Fosterer of the Wolf" << endl;
+    cout << "Welcome to Fosterer of the Wolf and Serpent" << endl;
     cout << ""
 }
 
