@@ -32,6 +32,6 @@ void Choice(){
 
     } else if(character == 0){
         cout << "You have choosen Thor, This character is more damaged based."
-        cout << ""
+        cout << "Would you like a run-down on this "
     } 
 }
