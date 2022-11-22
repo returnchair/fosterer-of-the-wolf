@@ -5,7 +5,7 @@ using namespace std;
 
 // att is attack
 // magicAtt is magical attacks
-// health is health
+// health ais health
 // speed determines the probability of how much they heal and when they heal (HPRegeneration function)
 
 class Thor{
@@ -30,7 +30,7 @@ class Tyr{
     string name = "Tyr";
 
     Tyr(){
-        att = 200; heavyAtt = 350; health = 
+        att = 200; heavyAtt = 350; health = 2000; speed = 20
     }
 
 };
