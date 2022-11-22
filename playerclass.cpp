@@ -1,8 +1,36 @@
 #include <iostream>
 #include <string>
 
-#include "main/header.hpp" // i added this, bobby, we're doing header files
-
 using namespace std;
 
-class 
+// att is attack
+// magicAtt is magical attacks
+// health is health
+// speed determines the probability of how much they heal and when they heal (HPRegeneration function)
+
+class Thor{
+    public:
+
+    double att, magicAtt, health, speed;
+    bool alive;
+    string name = "Thor";
+
+    Thor(){
+    att = 250; magicAtt = 450; health = 2500; speed = 10;
+    }
+
+
+
+};
+
+class Tyr{
+    public:
+    double att, heavyAtt, health, speed;
+    bool alive;
+    string name = "Tyr";
+
+    Tyr(){
+        att = 200; heavyAtt = 350; health = 
+    }
+
+};
