@@ -13,12 +13,11 @@ void End(){}
 bool charcter;
 bool runDown;
 
+// temp until main.cpp gets up and working
+
 int main() {
 Intro();
 Choice();
-
-
-
 
 return 0;
 }
