@@ -1,3 +1,7 @@
+// BUG DISCOVERED
+// @ Line 34, string needs to be properly initialized | @ Line 64-91 string array needs to be checked via a array-for-loop to check if input is valid
+// BUG DISCOVERED, -bobby
+
 #include <string>
 #include <stdlib.h>
 #include <chrono>
