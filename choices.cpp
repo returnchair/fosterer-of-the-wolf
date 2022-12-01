@@ -1,27 +1,8 @@
 #include <iostream>
-
-// #include "main/header.hpp" // i added this, bobby, we're doing header files
-
-std::ostream& bold_on(std::ostream& os)
-{
-    return os << "\e[1m";
-}
-
-std::ostream& bold_off(std::ostream& os)
-{
-    return os << "\e[0m";
-}
-
+#include "choices.hpp"
 
 using namespace std;
 
-
-void Intro();
-void Choice();
-void ThorEnding();
-void TyreEding();
-void RollCredits();
-
 std::ostream& bold_on(std::ostream& os)
 {
     return os << "\e[1m";
@@ -32,29 +13,8 @@ std::ostream& bold_off(std::ostream& os)
     return os << "\e[0m";
 }
 
-void Intro()
-void Choice()
-
-void ThorEnding()
-void TyrEnding()
-void End()
-
-
-bool character;
-bool runDown;
-
-// temp until main.cpp gets up and working
-
-
-int main() {
-Intro();
-Choice();
-
-return 0;
-}
-
 // intro
-// intro>
+// intro
 // intro
 
 void Intro(){ // does not return
@@ -64,42 +24,22 @@ void Intro(){ // does not return
 }
 
 // character choosing
+// character choosing / return
 // character choosing
-// character choosing
 
-void Choice(){ // character choice
-    cin >> character;
-    if(character == 1){
-        cout << "You have choosen Tyr, This character is more agility based." << endl;
-        cout << "Would you like a run-down on this character?: (1)yes, (0)no" << endl;
-        cin >> runDown;
-        if(runDown == 1){
-            cout << "This character goes by the name of Tyr and the God of War and Justice " << endl;
-            cout << "Tyr is a more faster and agile than Thor ";
-            Tyr one; // making class object
-
-            // make sure that a function (or function within a class is called so that the program doesn't end running after runDown is finished.)
-
-        } else if(runDown == 0){
-            // does nothing; continue to game
-        }
-        
-
-    } else if(character == 0){
-        cout << "You have choosen Thor, This character is more damaged based." << endl;
-        cout << "Would you like a run-down on this character?: (1)yes, (0)no" << endl;
-        cin >> runDown;
-        if(runDown == 1){
-            cout << "This character is the God of Thunder known as Thor. Thor is more of a brute than Tyr. " << endl;
-            cout << "Thor does more damage than Tyr but is slower. " << endl;
-            Thor one; // making class object
-
-        // make sure that a function (or function within a class is called so that the program doesn't end running after runDown is finished.)
-
-        } else if(runDown == 0){
-            // does nothing; continue to game
-        }
-    } 
+string Choice(string Player){ 
+    if(Player == "Tyr" || Player == "tyr"){
+        cout << "You have chosen " << bold_on << "Tyr." << bold_off << endl;
+        cout << "Tyr is a god. The God of War and Justice." << endl;
+        string s = Player;
+        return s;
+    }
+    
+    else if(Player == "Thor" || Player == "thor")
+        cout << "You have chosen " << bold_on << "Thor." << bold_off << endl;
+        cout << "Thor is a god. The God of Thunder." << endl;
+        string s = Player;
+        return s;
 }
 
 
@@ -116,12 +56,21 @@ void ThorEnding(){
 
 void TyrEnding(){
     cout << "The God of War faught a tough battle against Garmr. The God of War manages to kill the guard dog of hel. With the death of the gods" << endl;
-    cout << "Loki, Hemidall, Thor, Freyr, "
+    cout << "Loki, Hemidall, Thor, Freyr as Ragnorok arrives " << endl;
 
 }
 
 void RollCredits(){
     cout << "\nThank you user for playing our game Fosterer of the Wolf." << endl;
     cout << "This project game was made for a semester project. Hope you enjoyed the game! Goodbye!" << endl;
+}
+
+void GarmIntro(){
+    cout << "\nAs Tyr arrives to the gates of hel trying to prevent ragnorok, Tyr stops in his place hearing something sneaking up from behind him." << endl;
+    cout << "**Swoosh** He turns around expecting to see something horrific but nothing is there." << endl;
+    cout << "\nTyr looks up to see something hovering above him. Superised he stands still in shock as the creature hits Tyr acroos the terrain." << endl;
+    cout << "Standing up Tyr realizes this wont be an easy fight as he is faced against " << bold_on << "Garm" << bold_off << " the guard dog of Hel." << endl;
+    cout << "Tyr looks at Garm realizing that he is chained to the gates of hel. Thinking he is safe he tries to walk around but all of a sudden **snap** " << endl;
+    cout << "The chains keeping garm near the gates snap and Garm is now free." << endl;
 }
 
