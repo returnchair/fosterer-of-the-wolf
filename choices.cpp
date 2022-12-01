@@ -112,7 +112,7 @@ void ThorEnding(){
     cout << "He takes nine steps foward then falls to his" << bold_on << " death." << bold_off << endl;
     cout << "\nThrough the outcome of the death of Thor many tragic events come to past." << endl;
     cout << "Once the God of Thunder dies, Loki and the God Heimdall strikes at eachother's throats, Freyr is killed by Surtr, and the gods Mani and Solveig are slain by Skoll and Hati." << endl;
-
+}
 
 void TyrEnding(){
     cout << "The God of War faught a tough battle against Garmr. The God of War manages to kill the guard dog of hel. With the death of the gods" << endl;
