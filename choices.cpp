@@ -32,12 +32,12 @@ std::ostream& bold_off(std::ostream& os)
     return os << "\e[0m";
 }
 
-void Intro(){}
-void Choice(){}
+void Intro()
+void Choice()
 
-void ThorEnding(){}
-void TyrEnding(){}
-void End(){}
+void ThorEnding()
+void TyrEnding()
+void End()
 
 
 bool character;
@@ -113,17 +113,6 @@ void ThorEnding(){
     cout << "\nThrough the outcome of the death of Thor many tragic events come to past." << endl;
     cout << "Once the God of Thunder dies, Loki and the God Heimdall strikes at eachother's throats, Freyr is killed by Surtr, and the gods Mani and Solveig are slain by Skoll and Hati." << endl;
 
-void ThorEnding(){
-    cout << "The God of Thunder faught a hard battle against Jormungandr. Though the God victorious, the poison from the serpent slowly succumbs him. " << endl;
-    cout << "The God takes nine steps foward then falls dead. Through the outcome of the death of Thor many tragic events come to past." << endl;
-    cout << "Once the God of Thunder dies, Loki an the God Heimdall kill eachother, Freyr is killed by Surtr, and the gods Mani and Solveig are slain by Skoll and Hati." << endl;
-
-}
-
-
-void TyrEnding(){
-    cout << "\nThe God of War faught a tough battle against Garmr. The God of War, Tyr, manages to kill the guard dog of Hel. With the death of the gods" << endl;
-    cout << "Loki, Hemidall, Thor, Freyr ";
 
 void TyrEnding(){
     cout << "The God of War faught a tough battle against Garmr. The God of War manages to kill the guard dog of hel. With the death of the gods" << endl;
