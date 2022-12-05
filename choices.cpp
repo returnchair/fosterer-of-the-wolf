@@ -28,14 +28,17 @@ void Intro(){ // does not return
 // character choosing
 
 string Choice(string Player){ 
-    if(Player == "Tyr" || Player == "tyr"){
+    string PlayerInput = "";
+    cout << "enter" << endl;
+    cin >> PlayerInput;
+    if(PlayerInput == "Tyr" || PlayerInput == "tyr"){
         cout << "You have chosen " << bold_on << "Tyr." << bold_off << endl;
         cout << "Tyr is a god. The God of War and Justice." << endl;
         string s = Player;
         return s;
     }
     
-    else if(Player == "Thor" || Player == "thor")
+    else if(PlayerInput == "Thor" || PlayerInput == "thor")
         cout << "You have chosen " << bold_on << "Thor." << bold_off << endl;
         cout << "Thor is a god. The God of Thunder." << endl;
         string s = Player;
@@ -74,3 +77,8 @@ void GarmIntro(){
     cout << "The chains keeping garm near the gates snap and Garm is now free." << endl;
 }
 
+void SnakeIntro(){
+    cout << "Thor arrives to the realm of midguard preapared to fight the world serpent. Walking around looking for this snake he starts to get furious, so he yells \"Come out snake i only want to " << endl;
+    }
+    
+    

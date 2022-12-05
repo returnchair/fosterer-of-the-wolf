@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include "classes.hpp"
 
 using namespace std;
 
@@ -17,7 +18,7 @@ class Garm{
 class Jormungandr{
     public:
     double attack, heavyAtt, health, speed;
-    string name = "Jormuungandr";
+    string name = "Jormungandr";
 
     Jormungandr(){
          att =  200; heavyatt = 450; health = 5000; speed = 5;

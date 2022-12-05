@@ -1,15 +1,18 @@
 #include <iostream>
 
-#include "choices.hpp"
+#include "choices.hpp" // dialogue
+#include "classes.hpp" // player class
+#include "battle.hpp" // battle sequence
 
 int main(){
 
-    string a = "a";
+    /* string a = "a";
     cout << "enter: " << endl;
     cin >> a;
-    if(Choice(a) == "Tyr"){
+    cin.clear(); */
+    if(Choice("Tyr") == "Tyr"){
         cout << "hi" << endl;
-    } else if(Choice(a) == "Thor"){
+    } else if(Choice("Thor") == "Thor"){
         cout << "hi 2" << endl;
     }
 }
