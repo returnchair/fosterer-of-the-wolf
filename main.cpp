@@ -10,9 +10,14 @@ int main(){
     cout << "enter: " << endl;
     cin >> a;
     cin.clear(); */
-    if(Choice("Tyr") == "Tyr"){
+
+    bool choice = "";
+
+    if(Choice("Tyr") == false){
         cout << "hi" << endl;
-    } else if(Choice("Thor") == "Thor"){
+        choice = false;
+    } else if(Choice("Thor") == true){
         cout << "hi 2" << endl;
+        choice = false;
     }
 }

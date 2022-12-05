@@ -1,6 +1,10 @@
 #include <iostream>
 #include <string>
 #include "classes.hpp"
+#include <stdlib.h>
+#include <chrono>
+#include <thread>
+#include <random>
 
 using namespace std;
 
@@ -18,7 +22,7 @@ class Thor{
     string name = "Thor";
    
     Thor(){
-    att = 250; magicAtt = 450; health = 2500; speed = 10; 
+    att = 250; magicAtt = 450; health = 2500; defense = 110; 
     }
  
     cout << "\n You have Chosen the Almighty\n        THOR         \nGod Of Thunder\n Wielder of Mjnolnir\nSon Of Odin\nFosterer of the Serpent" <<endl;
@@ -41,7 +45,7 @@ class Tyr{
     bool player;
 
     Tyr(){
-        attack = 250; heavyAtt = 350; health = 2000; speed = 20;
+        attack = 250; heavyAtt = 350; health = 2000; defense = 140;
     }
 
     cout <<"\nYou have chosen the Relentless\n       TYR       \nGod Of War\nBinder of Fenrir\nFosterer of the Wolf" << endl;
@@ -56,14 +60,46 @@ class Tyr{
         }
     }
 };
-#include <string>
-#include <stdlib.h>
-#include <chrono>
-#include <thread>
-#include <iostream>
-#include <random>
 
-#include "battle.hpp"
+// bosses
+
+class Garm{
+    public:
+    double att, heavyAtt, health, speed;
+    bool alive;
+    string name = "Garm";
+
+    Garm(){
+        att =  250; heavyatt = 400; health = 4000; speed = 10;
+    }
+      bool updatehealth(double heal, double att){  // will be called in main function in a while loop
+        if(att >= heal){
+            return false;
+        } else {
+            return true;
+        }
+    }
+};
+
+class Jormungandr{
+    public:
+    double attack, heavyAtt, health, speed;
+    string name = "Jormungandr";
+
+    Jormungandr(){
+         att =  200; heavyatt = 450; health = 5000; speed = 5;
+    }
+    
+      bool updatehealth(double heal, double att){  // will be called in main function in a while loop
+        if(att >= heal){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+};
+
 
 using namespace std;
 using namespace std::this_thread; // sleep_for, sleep_until
@@ -79,15 +115,15 @@ std::ostream& bold_off(std::ostream& os)
     return os << "\e[0m";
 }
 
-string player = "Tyr";
-string party = "Thor";
-string enemy = "Enemy";
+// string player = "Tyr";
+// string party = "Thor";
+// string enemy = "Enemy";
 // Health, attack, defense, skill points, max health, max SP, and alive
-double pStats[6] = {100, 25, 10, 50, 100, 50};
-bool pAlive = 1;
+// double pStats[6] = {100, 25, 10, 50, 100, 50};
+// bool pAlive = 1;
 // double aStats[5] = {80, 30, 8, 42, 1};
-double eStats[4] = {82, 12, 12, 1};
-string items[4] = {"Potion", "Ether", "", ""};
+// double eStats[4] = {82, 12, 12, 1};
+// string items[4] = {"Potion", "Ether", "", ""};
 
 //player, enemy, pStats, eStats
 

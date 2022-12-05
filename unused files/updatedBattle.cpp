@@ -33,10 +33,13 @@ void battle () {
     random_device sp;
     uniform_int_distribution<int> skill(1,20);
     uniform_int_distribution<int> dist(1,10);
+
     bool pDef = 0;
     bool ePoison = 0;
     int eStatus = 0;
+
     while(pStats[4] != 0 || eStats[3] != 0){
+
     if (ePoison == 1 && eStatus <= 3){
         cout << "\nPoison inflicts damage!" << endl;
         cout << enemy << " takes 10 damage!" << endl;
@@ -69,6 +72,7 @@ void battle () {
             sleep_until(system_clock::now() + seconds(1));
             cout << "Inflicted " << pStats[1] << " damage! " << enemy << " is at " << eStats[0] << " health!" << endl;
         }
+
     } else if (input == "Item" || input == "item"){
         cout << "Items: " << items << endl;
         cout << "Type one out to use, be back out, type anything not in the item list" << endl;
@@ -88,6 +92,7 @@ void battle () {
             } else {
                 continue;
             }
+
         } else if (select == "ether" || select == "Ether"){
             cout << "Ether: Restores 20 skill points." << endl;
             cout << "Use Ether?" << endl;
@@ -103,6 +108,7 @@ void battle () {
                 continue;
             }
         }
+        
     } else if (input == "Skill" || input == "skill"){
         cout << "Tyr has " << bold_on << pStats[3] << " skill points left!" << bold_off << endl;
         cout << "Heavy swing " << bold_on << "12 Sp " << bold_off << "\nPoison " << bold_on << "15 Sp" << bold_off << endl;
@@ -169,6 +175,62 @@ void battle () {
                 sleep_until(system_clock::now() + seconds(1));
                 cout << player << " blocks the attack! " << player << " has " << pStats[0] << " health remaining!" << endl;
             } else {
+    double attack, heavyAtt, health, speed;
+    string name = "Jormungandr";
+
+    Jormungandr(){
+         att =  200; heavyatt = 450; health = 5000; speed = 5;
+    }class Garm{
+    public:
+    double att, heavyAtt, health, speed;
+    bool alive;
+    string name = "Garm";
+
+    Garm(){
+        att =  250; heavyatt = 400; health = 4000; speed = 10;
+    }
+      bool updatehealth(double heal, double att){  // will be called in main function in a while loop
+        if(att >= heal){
+            return false;
+        } else {
+            return true;
+        }
+    }
+};
+
+class Jormungandr{
+    public:
+    double attack, heavyAtt, health, speed;
+    string name = "Jormungandr";
+
+    Jormungandr(){
+         att =  200; heavyatt = 450; health = 5000; speed = 5;
+    }class Garm{
+    public:
+    double att, heavyAtt, health, speed;
+    bool alive;
+    string name = "Garm";
+
+    Garm(){
+        att =  250; heavyatt = 400; health = 4000; speed = 10;
+    }
+      bool updatehealth(double heal, double att){  // will be called in main function in a while loop
+        if(att >= heal){
+            return false;
+        } else {
+            return true;
+        }
+    }
+};
+
+class Jormungandr{
+    public:
+    double attack, heavyAtt, health, speed;
+    string name = "Jormungandr";
+
+    Jormungandr(){
+         att =  200; heavyatt = 450; health = 5000; speed = 5;
+    }
             pStats[0] -= eStats[1] - pStats[2];
             cout << "\nAttack done by " << enemy << "!" << endl;
             sleep_until(system_clock::now() + seconds(1));

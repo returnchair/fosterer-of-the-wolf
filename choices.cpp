@@ -27,22 +27,20 @@ void Intro(){ // does not return
 // character choosing / return
 // character choosing
 
-string Choice(string Player){ 
+bool Choice(string Player){ 
     string PlayerInput = "";
     cout << "enter" << endl;
     cin >> PlayerInput;
     if(PlayerInput == "Tyr" || PlayerInput == "tyr"){
         cout << "You have chosen " << bold_on << "Tyr." << bold_off << endl;
         cout << "Tyr is a god. The God of War and Justice." << endl;
-        string s = Player;
-        return s;
+        return false;
     }
     
     else if(PlayerInput == "Thor" || PlayerInput == "thor")
         cout << "You have chosen " << bold_on << "Thor." << bold_off << endl;
         cout << "Thor is a god. The God of Thunder." << endl;
-        string s = Player;
-        return s;
+        return true;
 }
 
 
@@ -78,7 +76,14 @@ void GarmIntro(){
 }
 
 void SnakeIntro(){
-    cout << "Thor arrives to the realm of midguard preapared to fight the world serpent. Walking around looking for this snake he starts to get furious, so he yells \"Come out snake i only want to " << endl;
-    }
+        cout << "Thor arrives to the realm of midguard preapared to fight the world serpent. Walking around looking for this snake he starts to get furious, so he yells \"Come out snake I only want to talk\"." << endl;
+        cout << "With a slight smirk on his face he looks left then slowley looks right. Aware that the snake is following behind him he continues to foward." << endl;
+        cout << "The world sepernt thinking he can finally get the drop on Thor, the snake jumps up and tries to land on thor." << endl;
+        cout << "\"It's about damn time\" as he realeses his hammer upward hitting the serpent from the jaw and sending it flying backwards. Thor walks toward the serpent ready to fight and yells \"Bring it snake\".  " << endl;
+        cout << "The serpent lets out a pericing roar, then thor get into his battle stance" << endl;
+}
+
+    
+    
     
     
