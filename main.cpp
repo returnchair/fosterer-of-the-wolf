@@ -20,4 +20,8 @@ int main(){
         cout << "hi 2" << endl;
         choice = false;
     }
+
+  Thor one;
+  cout << one.health << endl;
+
 }
