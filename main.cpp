@@ -24,4 +24,8 @@ int main(){
   Thor one;
   cout << one.health << endl;
 
+  // update health
+  // battle fight
+  // dialogue
+
 }
