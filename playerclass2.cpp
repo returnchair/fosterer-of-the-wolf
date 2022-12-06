@@ -14,6 +14,7 @@ using namespace std;
 // magicAtt is magical attacks
 // health ais health
 // speed determines the probability of how much they heal and when they heal (HPRegeneration function)
+// defense substracts attack
 
 Thor::Thor(bool alive1, double attack1, double magicAttack1, double health1, double defense1, double speed1){
     alive = alive1;
