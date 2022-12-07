@@ -78,6 +78,8 @@ double enemyAttackSequence(double attack, double heavyAttack){
       }
 }
 
+// void function preferred - call updateHealth within magicalPotions()
+
 double magicalPotions(double health, double specialAttack){
     double healthEffectiveness = 25 * specialAttack / 0.8;
     double etherEffectiveness = 5 * specialAttack / 1.2;
