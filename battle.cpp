@@ -19,13 +19,13 @@ uniform_int_distribution<int> dist(1,10);
 
 int skillPoints = 50;
 
-double playerHealthOfBattle = health;
-double enemyHealthOfBattle = ???;
+double playerHealthOfBattle = 1;
+double enemyHealthOfBattle = 1;
 
-void initiateBattle(string player, bool alive, double attack, double specialAttack, double health, double defense, double speed){
+void initiateBattle(string player, bool alive, double attack, double specialAttack, double health, double defense, double speed, double enemyHealth, double enemyHeavyAttack){
 
 playerHealthOfBattle = health;
-enemyHealthOfBattle = ???;
+enemyHealthOfBattle = enemyHealth;
 
 cout << "First strike!" << endl;
 
@@ -45,7 +45,7 @@ if(answer == "Y" || answer == "y"){
     updateHealth(attackSequence(attack, specialAttack), enemyAttack, enemyHeavyAttack); // reminder to add ascii art 
     continue; 
 } else if(updateHealth(attackSequence(attack, specialAttack), enemyAttack, enemyHeavyAttack) == false){
-    // player? death sequence
+    deathDialogue(player);
 } else{
     cout << player << ", " << "You have been given 50 skillpoints, spend it wisely!" << endl;
     magicalPotions();
@@ -80,7 +80,7 @@ double enemyAttackSequence(double attack, double heavyAttack){
 
 // void function preferred - player's health/ether is a global variable so we can just change it within magicalPotions()
 
-double magicalPotions(double health, double specialAttack){
+void magicalPotions(double health, double specialAttack){
     double healthEffectiveness = 25 * specialAttack / 0.8;
     double etherEffectiveness = 5 * specialAttack / 1.2;
     string option = "";
@@ -107,10 +107,13 @@ bool updateHealth(double inflictedAttack, double enemyAttack, double enemyHeavyA
     playerHealthOfBattle -= enemyAttackSequence(enemyAttack, enemyHeavyAttack);
     enemyHealthOfBattle -= inflictedAttack;
 
-    // inflictedDmg of boss sequence
+if(enemyHealthOfBattle <= 0){
+    return false;
+} else {
+    return true;
+}
 
 if(playerHealthOfBattle <= 0){
-    
     return false; // dead
 } else {
     return true; // alive

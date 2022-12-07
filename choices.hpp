@@ -13,4 +13,6 @@ void RollCredits();
 void GarmIntro();
 void SnakeIntro();
 
+void deathDialogue(string character);
+
 void End();

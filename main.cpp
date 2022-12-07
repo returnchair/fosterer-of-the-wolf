@@ -32,14 +32,21 @@ int main(){
     // rest of the game vvv | more dialogue? seems lackluster
 
     if(realmChoice() == "Midgard" || realmChoice == "midgard"){
-        Jormungandr one;
+        Jormungandr two;
 
         SnakeIntro();
-        initiateBattle(chosenCharacter, one.alive, one.attack, one.heavyAttack, one.health, one.defense, one.speed);
-    } else {
-        Garm one;
+        initiateBattle(chosenCharacter, one.alive, one.attack, one.heavyAttack, one.health, one.defense, one.speed, two.health, two.heavyAttack);
+        
+    } else { // Hel
+        Garm two;
 
         GarmIntro();
         initiateBattle(chosenCharacter, one.alive, one.attack, one.heavyAttack, one.health, one.defense, one.speed);
     }
+}
+
+if(chosenCharacter == "Tyr"){
+    TyrEnding();
+} else if (chosenCharacter == "Thor"){
+    ThorEnding();
 }

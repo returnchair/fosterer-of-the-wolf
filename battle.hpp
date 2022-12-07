@@ -8,6 +8,6 @@ double attackSequence(double attack, double specialAttack);
 
 double enemyAttackSequence(double attack, double heavyAttack);
 
-double magicalPotions(double health, double specialAttack); 
+bool magicalPotions(double health, double specialAttack); 
 
 bool updateHealth(double inflictedAttack, double bossAttack, double bossHeavyAttack);
