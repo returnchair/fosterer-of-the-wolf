@@ -4,25 +4,32 @@
 #include "classes.hpp" // player class
 #include "battle.hpp" // battle sequence
 
+using namespace std;
+
 int main(){
+
+    string chosenCharacter = "";
 
     /* string a = "a";
     cout << "enter: " << endl;
     cin >> a;
     cin.clear(); */
 
-    bool choice = "";
-
     if(Choice("Tyr") == false){
+        Tyr one;
+        chosenCharacter = "Tyr";
+        initiateBattle(chosenCharacter, one.alive, one.attack, one.heavyAttack, one.health, one.defense, one.speed);
         cout << "hi" << endl;
-        choice = false;
+        
     } else if(Choice("Thor") == true){
+        Thor one;
+        chosenCharacter = "Thor";
+        initiateBattle(chosenCharacter, one.alive, one.attack, one.magicAttack, one.health, one.defense, one.speed);
         cout << "hi 2" << endl;
-        choice = false;
     }
 
-  Thor one;
-  cout << one.health << endl;
+// more dialogue, rn its just a boss fight
+
 
   // update health
   // battle fight

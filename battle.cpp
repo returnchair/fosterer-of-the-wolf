@@ -44,7 +44,7 @@ void battle () {
     random_device sp;
     uniform_int_distribution<int> skill(1,20);
     uniform_int_distribution<int> dist(1,10);
-    bool pDef = 0;
+    bool pDef = 0; // defense
     bool ePoison = 0;
     int eStatus = 0;
     while(pStats[4] != 0 || eStats[3] != 0){

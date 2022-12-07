@@ -37,10 +37,11 @@ bool Choice(string Player){
         return false;
     }
     
-    else if(PlayerInput == "Thor" || PlayerInput == "thor")
+    else if(PlayerInput == "Thor" || PlayerInput == "thor"){
         cout << "You have chosen " << bold_on << "Thor." << bold_off << endl;
         cout << "Thor is a god. The God of Thunder." << endl;
         return true;
+}
 }
 
 
