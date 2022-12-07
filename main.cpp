@@ -36,14 +36,14 @@ int main(){
         Jormungandr two;
 
         SnakeIntro();
-        initiateBattle(chosenCharacter, one.alive, one.attack, one.heavyAttack, one.health, one.defense, one.speed, two.health, two.heavyAttack);
+        initiateBattle(chosenCharacter, one.alive, one.attack, one.magicAttack, one.health, one.defense, one.speed, two.health, two.heavyAttack);
         
     } else { // Hel
         Tyr one;
         Garm two;
 
         GarmIntro();
-        initiateBattle(chosenCharacter, one.alive, one.attack, one.heavyAttack, one.health, one.defense, one.speed);
+        initiateBattle(chosenCharacter, one.alive, one.attack, one.heavyAttack, one.health, one.defense, one.speed, two.health, two.heavyAttack);
     }
 
 if(chosenCharacter == "Tyr"){
