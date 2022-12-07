@@ -10,4 +10,4 @@ double enemyAttackSequence(double attack, double heavyAttack);
 
 void magicalPotions(double specialAttack); 
 
-bool updateHealth(double inflictedAttack, double bossAttack, double bossHeavyAttack);
+bool updateHealth(double inflictedAttack, double enemyAttack, double enemyHeavyAttack);

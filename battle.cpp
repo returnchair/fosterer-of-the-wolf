@@ -22,7 +22,7 @@ int skillPoints = 50;
 double playerHealthOfBattle = 1;
 double enemyHealthOfBattle = 1;
 
-void initiateBattle(string player, bool alive, double attack, double specialAttack, double health, double defense, double speed, double enemyHealth, double enemyHeavyAttack){
+void initiateBattle(string player, bool alive, double attack, double specialAttack, double health, double defense, double speed, double enemyHealth, double enemyAttack, double enemyHeavyAttack){
 
 playerHealthOfBattle = health;
 enemyHealthOfBattle = enemyHealth;
