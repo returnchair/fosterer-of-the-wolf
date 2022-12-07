@@ -9,9 +9,9 @@
 #include "choices.hpp"
 
 using namespace std;
-using namespace std::this_thread; // sleep_for, sleep_until
-using namespace std::chrono; // nanoseconds, system_clock, seconds
-
+using namespace std::this_thread;   // sleep_for, sleep_until
+using namespace std::chrono;        // nanoseconds, system_clock, seconds
+                                    // sleep_until(system_clock::now() + seconds(1));
 random_device rd;
 random_device sp;
 uniform_int_distribution<int> skill(1,20);
