@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void initiateBattle(string player, bool alive, double attack, double specialAttack, double health, double defense, double speed, double enemyHealth, double enemyHeavyAttack);
+void initiateBattle(string player, bool alive, double attack, double specialAttack, double health, double defense, double speed, double enemyHealth, double enemyAttack, double enemyHeavyAttack);
 
 double attackSequence(double attack, double specialAttack);
 

@@ -31,7 +31,7 @@ cout << "First strike!" << endl;
 
 // may need to add variable replacement for attackSequence passing as a parameter
 
-playerInflictedDmg = attackSequence(attack, specialAttack);
+double playerInflictedDmg = attackSequence(attack, specialAttack);
 updateHealth(playerInflictedDmg, enemyAttack, enemyHeavyAttack);
 
 bool flag = true;
@@ -42,9 +42,10 @@ cout << "Continue attack? [Y/N]" << endl;
 cin >> answer;
 
 if(answer == "Y" || answer == "y"){
-    updateHealth(attackSequence(attack, specialAttack), enemyAttack, enemyHeavyAttack); // reminder to add ascii art 
+    updateHealth(playerInflictedDmg, enemyAttack, enemyHeavyAttack);
+    updateHealth(playerInflictedDmg, enemyAttack, enemyHeavyAttack); // reminder to add ascii art 
     continue; 
-} else if(updateHealth(attackSequence(attack, specialAttack), enemyAttack, enemyHeavyAttack) == false){
+} else if(updateHealth(playerInflictedDmg, enemyAttack, enemyHeavyAttack) == false){
     deathDialogue(player);
 } else{
     cout << player << ", " << "You have been given 50 skillpoints, spend it wisely!" << endl;

@@ -1,4 +1,4 @@
-COMPILE = main.cpp battle.cpp choices.cpp playerclass.cpp ascii.cpp
+COMPILE = main.cpp battle.cpp choices.cpp classes.cpp ascii.cpp
 HEADER_COMPILE = battle.hpp choices.hpp classes.hpp ascii.hpp
 
 compile:
