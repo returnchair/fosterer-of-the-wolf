@@ -11,26 +11,18 @@ int main(){
 
     string chosenCharacter = "";
 
-// temp code in main.cpp until we figure out bosses/enemies
-// because initiateBattle function can be universally used
-// we can have two seperate realms the player can enter with either boss in either one
-
 // battle.cpp logic:
 // battles are done within one function spraeding across many functions such as a fight sequence
 // battle.cpp will include a check to see if there's any skillpoints left
 // battle.cpp will also include a health check for both the boss and player
 
-    /* Intro(); // intro sequence
-    if(Choice("Tyr") == false){
-        Tyr one;
-        chosenCharacter = "Tyr";
-        
-    } else if(Choice("Thor") == true) {
-        Thor one;
-        chosenCharacter = "Thor";
-    } */
+// to do list
 
-    // rest of the game vvv | more dialogue? seems lackluster
+// updateStatus for ether & health
+// ensure that endings are met
+// dialogue is fixed
+// ascii art 
+
 
     if(realmTravel() == "Midgard" || realmTravel() == "midgard"){
         Thor one;
@@ -39,7 +31,7 @@ int main(){
         SnakeIntro();
         initiateBattle(chosenCharacter, one.alive, one.attack, one.magicAttack, one.health, one.defense, one.speed, two.health, two.attack, two.heavyAttack);
         
-    } else { // Hel
+    } else if(realmTravel() == "Hel" || realmTravel() == "hel") { // Hel
         Tyr one;
         Garm two;
 

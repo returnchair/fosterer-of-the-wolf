@@ -1,3 +1,4 @@
+//Made by (mostly) Joshua and Bobby. As well as battle.hpp
 #include <string>
 #include <stdlib.h>
 #include <chrono>
@@ -74,6 +75,7 @@ double enemyAttackSequence(double attack, double heavyAttack){
     if (crit == 10){
          double inflictedDmg = attack * heavyAttack;
          return inflictedDmg;
+
      } else {
          return inflictedDmg;
       }
