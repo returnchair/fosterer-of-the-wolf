@@ -25,7 +25,7 @@ double enemyHealthOfBattle = ???;
 void initiateBattle(string player, bool alive, double attack, double specialAttack, double health, double defense, double speed){
 
 playerHealthOfBattle = health;
-bossHealthOfBattle = ???;
+enemyHealthOfBattle = ???;
 
 cout << "First strike!" << endl;
 
@@ -42,7 +42,7 @@ cout << "Continue attack? [Y/N]" << endl;
 cin >> answer;
 
 if(answer == "Y" || answer == "y"){
-    updateHealth(attackSequence(attack, specialAttack), enemyAttack, enemyHeavyAttack); // reminder to add ascii art & sounds
+    updateHealth(attackSequence(attack, specialAttack), enemyAttack, enemyHeavyAttack); // reminder to add ascii art 
     continue; 
 } else if(updateHealth(attackSequence(attack, specialAttack), enemyAttack, enemyHeavyAttack) == false){
     // player? death sequence
@@ -78,7 +78,7 @@ double enemyAttackSequence(double attack, double heavyAttack){
       }
 }
 
-// void function preferred - call updateHealth within magicalPotions()
+// void function preferred - player's health/ether is a global variable so we can just change it within magicalPotions()
 
 double magicalPotions(double health, double specialAttack){
     double healthEffectiveness = 25 * specialAttack / 0.8;
@@ -91,7 +91,7 @@ double magicalPotions(double health, double specialAttack){
 
     if(option == "1"){
         skillPoints -= 5;
-        return health + healthEffectiveness;
+        playerHealthOfBattle += healthEffectiveness
     } 
     
     else if(option == "2"){
