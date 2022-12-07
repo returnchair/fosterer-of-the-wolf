@@ -10,29 +10,36 @@ int main(){
 
     string chosenCharacter = "";
 
-    /* string a = "a";
-    cout << "enter: " << endl;
-    cin >> a;
-    cin.clear(); */
+// temp code in main.cpp until we figure out bosses/enemies
+// because initiateBattle function can be universally used
+// we can have two seperate realms the player can enter with either boss in either one
 
+// battle.cpp logic:
+// battles are done within one function spraeding across many functions such as a fight sequence
+// battle.cpp will include a check to see if there's any skillpoints left
+// battle.cpp will also include a health check for both the boss and player
+
+    Intro(); // intro sequence
     if(Choice("Tyr") == false){
         Tyr one;
         chosenCharacter = "Tyr";
-        initiateBattle(chosenCharacter, one.alive, one.attack, one.heavyAttack, one.health, one.defense, one.speed);
-        cout << "hi" << endl;
         
-    } else if(Choice("Thor") == true){
+    } else if(Choice("Thor") == true) {
         Thor one;
         chosenCharacter = "Thor";
-        initiateBattle(chosenCharacter, one.alive, one.attack, one.magicAttack, one.health, one.defense, one.speed);
-        cout << "hi 2" << endl;
     }
 
-// more dialogue, rn its just a boss fight
+    // rest of the game vvv | more dialogue? seems lackluster
 
+    if(realmChoice() == "Midgard" || realmChoice == "midgard"){
+        Jormungandr one;
 
-  // update health
-  // battle fight
-  // dialogue
+        SnakeIntro();
+        initiateBattle(chosenCharacter, one.alive, one.attack, one.heavyAttack, one.health, one.defense, one.speed);
+    } else {
+        Garm one;
 
+        GarmIntro();
+        initiateBattle(chosenCharacter, one.alive, one.attack, one.heavyAttack, one.health, one.defense, one.speed);
+    }
 }

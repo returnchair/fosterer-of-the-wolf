@@ -5,201 +5,112 @@
 #include <iostream>
 #include <random>
 
+#include "battle.hpp"
+#include "choices.hpp"
+
 using namespace std;
 using namespace std::this_thread; // sleep_for, sleep_until
 using namespace std::chrono; // nanoseconds, system_clock, seconds
 
-void battle();
+random_device rd;
+random_device sp;
+uniform_int_distribution<int> skill(1,20);
+uniform_int_distribution<int> dist(1,10);
 
-std::ostream& bold_on(std::ostream& os)
-{
-    return os << "\e[1m";
+int skillPoints = 50;
+
+double playerHealthOfBattle = health;
+double enemyHealthOfBattle = ???;
+
+void initiateBattle(string player, bool alive, double attack, double specialAttack, double health, double defense, double speed){
+
+playerHealthOfBattle = health;
+bossHealthOfBattle = ???;
+
+cout << "First strike!" << endl;
+
+// may need to add variable replacement for attackSequence passing as a parameter
+// playerInflictedDmg = attackSequence(attack, specialAttack);
+
+updateHealth(attackSequence(attack, specialAttack), enemyAttack, enemyHeavyAttack);
+
+bool flag = true;
+while(flag == true){
+
+string answer = "";
+cout << "Continue attack? [Y/N]" << endl;
+cin >> answer;
+
+if(answer == "Y" || answer == "y"){
+    updateHealth(attackSequence(attack, specialAttack), enemyAttack, enemyHeavyAttack); // reminder to add ascii art & sounds
+    continue; 
+} else if(updateHealth(attackSequence(attack, specialAttack), enemyAttack, enemyHeavyAttack) == false){
+    // player? death sequence
+} else{
+    cout << player << ", " << "You have been given 50 skillpoints, spend it wisely!" << endl;
+    magicalPotions();
+    continue; 
+}
+}
 }
 
-std::ostream& bold_off(std::ostream& os)
-{
-    return os << "\e[0m";
-}
-
-string player = "Tyr";
-string party = "Thor";
-string enemy = "Enemy";
-// Health, attack, defense, skill points, max health, max SP, and alive
-double pStats[6] = {100, 25, 10, 50, 100, 50};
-bool pAlive = 1;
-// double aStats[5] = {80, 30, 8, 42, 1};
-double eStats[4] = {82, 23, 12, 1};
-string items[4] = {"Potion", "Ether", "", ""};
-
-//player, enemy, pStats, eStats
-
-int main(){
-    battle();
-    return 0;
-}
-
-void battle () {
-    string input = "";
-    random_device rd;
-    random_device sp;
-    uniform_int_distribution<int> skill(1,20);
-    uniform_int_distribution<int> dist(1,10);
-    bool pDef = 0; // defense
-    bool ePoison = 0;
-    int eStatus = 0;
-    while(pStats[4] != 0 || eStats[3] != 0){
-    cout << "\nWhat will Tyr do?" << endl;
-    cout << "Attack     Skill     Item     Defend" << endl;
-    cin >> input; 
-    if (pDef == 1) {
-        pStats[2] = pStats[2] / 1.5;
-    }
-
-    if (input == "Attack" || input == "attack"){
-        int crit = dist(rd);
-        if (crit == 10){
-            pStats[1] = pStats[1]*1.5;
-            eStats[0] -= pStats[1] - eStats[2];
-            cout << "\nAttack done by " << player << "!" << endl;
-            sleep_until(system_clock::now() + seconds(1));
-            cout << "Inflicted " << pStats[1] << " damage! " << bold_on << "It's a critical hit!!! " << bold_off << enemy << " is at " << eStats[0] << " health!" << endl;
-            pStats[1] = pStats[1]/1.5;
-        } else {
-            eStats[0] -= pStats[1] - eStats[2];
-            cout << "\nAttack done by " << player << "!" << endl;
-            sleep_until(system_clock::now() + seconds(1));
-            cout << "Inflicted " << pStats[1] << " damage! " << enemy << " is at " << eStats[0] << " health!" << endl;
-        }
-    } else if (input == "Item" || input == "item"){
-        cout << "Items: " << items << endl;
-        cout << "Type one out to use, be back out, type anything not in the item list" << endl;
-        string select = "";
-        cin >> select;
-        if(select == "potion" || select == "Potion"){
-            cout << "Potion: Restores 50 health." << endl;
-            cout << "Use Potion?" << endl;
-            string use = "";
-            cin >> use;
-            if(use == "Yes" || use == "yes"){
-                if((pStats[0] + 50) <= pStats[4]){
-                    pStats[0] += 50;
-                } else {
-                    pStats[0] = pStats[4];
-                }
-            } else {
-                continue;
-            }
-        } else if (select == "ether" || select == "Ether"){
-            cout << "Ether: Restores 20 skill points." << endl;
-            cout << "Use Ether?" << endl;
-            string use = "";
-            cin >> use;
-            if(use == "Yes" || use == "yes"){
-                if((pStats[3] + 20) <= pStats[5]){
-                    pStats[3] += 20;
-                } else {
-                    pStats[3] = pStats[5];
-                }
-            } else {
-                continue;
-            }
-        }
-    } else if (input == "Skill" || input == "skill"){
-        cout << "Tyr has " << bold_on << pStats[3] << " skill points left!" << bold_off << endl;
-        cout << "Heavy swing " << bold_on << "12 Sp " << bold_off << "\nPoison " << bold_on << "15 Sp" << bold_off << endl;
-        string move = "";
-        cin >> move;
-        if(move == "heavy swing" || move == "heavy" || move == "swing" || move == "Heavy swing" || move == "heavy Swing" || move == "Heavy Swing" || move == "Heavy" || move == "Swing"){
-            if(pStats[3] >= 12){
-                pStats[3] = pStats[3] - 12;
-                int crit = skill(sp);
-                cout << crit << endl;
-                if(crit == 20){
-                    pStats[1] = pStats[1]*2;
-                    eStats[0] -= pStats[1] - eStats[2];
-                    cout << "\nAttack done by " << player << "!" << endl;
-                    sleep_until(system_clock::now() + seconds(1));
-                    cout << "Inflicted " << pStats[1] << " damage! " << bold_on << "It's a critical hit!!! " << bold_off << enemy << " is at " << eStats[0] << " health!" << endl;
-                    pStats[1] = pStats[1]/2;
-                } else {
-                pStats[1] = pStats[1]*1.5;
-                eStats[0] -= pStats[1] - eStats[2];
-                cout << "\nAttack done by " << player << "!" << endl;
-                sleep_until(system_clock::now() + seconds(1));
-                cout << "Inflicted " << pStats[1] << " damage! " << enemy << " is at " << eStats[0] << " health!" << endl;
-                pStats[1] = pStats[1]/1.5;
-                }
-            } else {
-                cout << "\nTyr doesn't have enough skill points!" << endl;
-                continue;
-            }
-        } else if (move == "Poison" || move == "poison"){
-            if(pStats[3] >= 10){
-                pStats[3] = pStats[3] - 15;
-                cout << "\nTyr inflicts poison on enemy!" << endl;
-                ePoison = 1;
-                eStatus = 0;
-            } else {
-                cout << "Tyr doesn't have enough skill points!" << endl;
-                continue;
-            }
-        } else {
-            continue;
-        }
-    } else if (input == "defend" || input == "Defend"){
-        pStats[2] = pStats[2] * 1.5;
-        pDef = 1;
-    }
-    
-    if(eStats[0] <= 0){
-        eStats[3] = 0;
-        cout << "Tyr defeats the enemy!" << endl;
-        break;
-    }
-
-    cout << "\nEnemy attacks!" << endl;
+double attackSequence(double attack, double specialAttack){
+    double inflictedDmg = attack;
     int crit = dist(rd);
-        if (crit == 10){
-            eStats[1] = eStats[1]*1.5;
-            pStats[0] -= eStats[1] - pStats[2];
-            cout << "\nAttack done by " << enemy << "!" << endl;
-            sleep_until(system_clock::now() + seconds(1));
-            cout << "Inflicted " << eStats[1] << " damage! " << bold_on << "It's a critical hit!!! " << bold_off << player << " is at " << pStats[0] << " health!" << endl;
-            eStats[1] = eStats[1]/1.5;
-        } else {
-            if(pStats[2] >= eStats[1]){
-                cout << "\nAttack done by " << enemy << "!" << endl;
-                sleep_until(system_clock::now() + seconds(1));
-                cout << player << " blocks the attack! " << player << " has " << pStats[0] << " health remaining!" << endl;
-            } else {
-            pStats[0] -= eStats[1] - pStats[2];
-            cout << "\nAttack done by " << enemy << "!" << endl;
-            sleep_until(system_clock::now() + seconds(1));
-            cout << "Inflicted " << eStats[1] - pStats[2] << " damage! " << player << " is at " << pStats[0] << " health!" << endl;
-            }
-        }
+
+    if (crit == 10){
+         double inflictedDmg = attack * specialAttack;
+         return inflictedDmg;
+     } else {
+         return inflictedDmg;
+      }
+}
+
+double enemyAttackSequence(double attack, double heavyAttack){
+    double inflictedDmg = attack;
+    int crit = dist(rd);
+
+    if (crit == 10){
+         double inflictedDmg = attack * heavyAttack;
+         return inflictedDmg;
+     } else {
+         return inflictedDmg;
+      }
+}
+
+double magicalPotions(double health, double specialAttack){
+    double healthEffectiveness = 25 * specialAttack / 0.8;
+    double etherEffectiveness = 5 * specialAttack / 1.2;
+    string option = "";
+
+    cout << "Items in store: " << "Mark of Health [Restores 25 health], Ether Gel [Restores skill points reservoir by 5]" << endl;
+    cout << "\nPlease enter a choice of 1, 2, and so on." << endl;
+    cin >> option;
+
+    if(option == "1"){
+        skillPoints -= 5;
+        return health + healthEffectiveness;
+    } 
     
-    if (pStats[0] <= 0){
-        pAlive = 0;
-        cout << "Tyr collapses \nBattle lost!" << endl;
-        break;
+    else if(option == "2"){
+        skillPoints += etherEffectiveness;
+    } 
+    
+    else {
+        cout << "You picked nothing so this opening was closed!" << endl;
     }
-    if (ePoison == 1 && eStatus <= 3){
-        cout << "\nPoison inflicts damage!" << endl;
-        cout << enemy << " takes 10 damage! Enemy is at " << eStats[0] << " Health!" << endl;
-        eStats[0] = eStats[0] - 10;
-        eStatus += 1;
-        if(eStats[0] <= 0){
-            eStats[3] = 0;
-            cout << "Tyr defeats the enemy!" << endl;
-            break;
-    }
-    } else if (eStatus > 3){
-        cout << "\nEnemy recovers from poison!" << endl;
-        eStatus = 0;
-        ePoison = 0;
-    }
-    }
+}
 
+bool updateHealth(double inflictedAttack, double enemyAttack, double enemyHeavyAttack){
+    playerHealthOfBattle -= enemyAttackSequence(enemyAttack, enemyHeavyAttack);
+    enemyHealthOfBattle -= inflictedAttack;
 
+    // inflictedDmg of boss sequence
+
+if(playerHealthOfBattle <= 0){
+    
+    return false; // dead
+} else {
+    return true; // alive
+}
 }

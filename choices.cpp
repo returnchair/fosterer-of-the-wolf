@@ -13,14 +13,14 @@ std::ostream& bold_off(std::ostream& os)
     return os << "\e[0m";
 }
 
-// intro
-// intro
-// intro
+// game intro
+// game intro
+// game intro
 
 void Intro(){ // does not return
-    cout << "Welcome to Fosterer of the Wolf and Serpent" << endl;
+    cout << "Welcome to Fosterer of the Wolf and Serpent." << endl;
     cout << "Through out this game you will play as your desired choosen character. " << endl;
-    cout << "Make your selction now, Enter (1)Tyr or (0)Thor:" << endl;
+    cout << "Make your selction now! Enter Thor for Thor or Tyr for Tyr." << endl;
 }
 
 // character choosing
@@ -44,6 +44,39 @@ bool Choice(string Player){
 }
 }
 
+// dialogue main
+// dialogue main
+// dialogure main
+
+string realmTravel(){
+string choice = "";
+cout << "You wake up in the middle of the Yggdrasil tree. You're only open to two realms as far as you can see." << endl;
+cout << "You see either Midgard [Home of the World Serpent] or Hel [Home of the Guardian Hellhound]" << endl;
+cout << "Please type in either Midgard or Hel to begin travel to either realms." << endl;
+cin >> choice;
+return choice;
+}
+
+// intros
+// intros
+// intros
+
+void GarmIntro(){
+    cout << "\nAs Tyr arrives to the gates of hel trying to prevent ragnorok, Tyr stops in his place hearing something sneaking up from behind him." << endl;
+    cout << "**Swoosh** He turns around expecting to see something horrific but nothing is there." << endl;
+    cout << "\nTyr looks up to see something hovering above him. Superised he stands still in shock as the creature hits Tyr acroos the terrain." << endl;
+    cout << "Standing up Tyr realizes this wont be an easy fight as he is faced against " << bold_on << "Garm" << bold_off << " the guard dog of Hel." << endl;
+    cout << "Tyr looks at Garm realizing that he is chained to the gates of hel. Thinking he is safe he tries to walk around but all of a sudden **snap** " << endl;
+    cout << "The chains keeping garm near the gates snap and Garm is now free." << endl;
+}
+
+void SnakeIntro(){
+        cout << "Thor arrives to the realm of midguard preapared to fight the world serpent. Walking around looking for this snake he starts to get furious, so he yells \"Come out snake I only want to talk\"." << endl;
+        cout << "With a slight smirk on his face he looks left then slowley looks right. Aware that the snake is following behind him he continues to foward." << endl;
+        cout << "The world sepernt thinking he can finally get the drop on Thor, the snake jumps up and tries to land on thor." << endl;
+        cout << "\"It's about damn time\" as he realeses his hammer upward hitting the serpent from the jaw and sending it flying backwards. Thor walks toward the serpent ready to fight and yells \"Bring it snake\".  " << endl;
+        cout << "The serpent lets out a pericing roar, then thor get into his battle stance" << endl;
+}
 
 // endings
 // endings
@@ -67,24 +100,6 @@ void RollCredits(){
     cout << "This project game was made for a semester project. Hope you enjoyed the game! Goodbye!" << endl;
 }
 
-void GarmIntro(){
-    cout << "\nAs Tyr arrives to the gates of hel trying to prevent ragnorok, Tyr stops in his place hearing something sneaking up from behind him." << endl;
-    cout << "**Swoosh** He turns around expecting to see something horrific but nothing is there." << endl;
-    cout << "\nTyr looks up to see something hovering above him. Superised he stands still in shock as the creature hits Tyr acroos the terrain." << endl;
-    cout << "Standing up Tyr realizes this wont be an easy fight as he is faced against " << bold_on << "Garm" << bold_off << " the guard dog of Hel." << endl;
-    cout << "Tyr looks at Garm realizing that he is chained to the gates of hel. Thinking he is safe he tries to walk around but all of a sudden **snap** " << endl;
-    cout << "The chains keeping garm near the gates snap and Garm is now free." << endl;
-}
-
-void SnakeIntro(){
-        cout << "Thor arrives to the realm of midguard preapared to fight the world serpent. Walking around looking for this snake he starts to get furious, so he yells \"Come out snake I only want to talk\"." << endl;
-        cout << "With a slight smirk on his face he looks left then slowley looks right. Aware that the snake is following behind him he continues to foward." << endl;
-        cout << "The world sepernt thinking he can finally get the drop on Thor, the snake jumps up and tries to land on thor." << endl;
-        cout << "\"It's about damn time\" as he realeses his hammer upward hitting the serpent from the jaw and sending it flying backwards. Thor walks toward the serpent ready to fight and yells \"Bring it snake\".  " << endl;
-        cout << "The serpent lets out a pericing roar, then thor get into his battle stance" << endl;
-}
-
-    
     
     
     
