@@ -7,4 +7,4 @@ compile:
 	g++ $(COMPILE) -o godofwar
 
 zip:
-	zip myprogram.zip $(COMPILE) $(HEADER_COMPILE) makefile
+	zip godofwar.zip $(COMPILE) $(HEADER_COMPILE) makefile
