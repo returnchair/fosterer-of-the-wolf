@@ -19,7 +19,7 @@ int main(){
 // battle.cpp will include a check to see if there's any skillpoints left
 // battle.cpp will also include a health check for both the boss and player
 
-    Intro(); // intro sequence
+    /* Intro(); // intro sequence
     if(Choice("Tyr") == false){
         Tyr one;
         chosenCharacter = "Tyr";
@@ -27,26 +27,28 @@ int main(){
     } else if(Choice("Thor") == true) {
         Thor one;
         chosenCharacter = "Thor";
-    }
+    } */
 
     // rest of the game vvv | more dialogue? seems lackluster
 
-    if(realmChoice() == "Midgard" || realmChoice == "midgard"){
+    if(realmTravel() == "Midgard" || realmTravel() == "midgard"){
+        Thor one;
         Jormungandr two;
 
         SnakeIntro();
         initiateBattle(chosenCharacter, one.alive, one.attack, one.heavyAttack, one.health, one.defense, one.speed, two.health, two.heavyAttack);
         
     } else { // Hel
+        Tyr one;
         Garm two;
 
         GarmIntro();
         initiateBattle(chosenCharacter, one.alive, one.attack, one.heavyAttack, one.health, one.defense, one.speed);
     }
-}
 
 if(chosenCharacter == "Tyr"){
     TyrEnding();
 } else if (chosenCharacter == "Thor"){
     ThorEnding();
+}
 }

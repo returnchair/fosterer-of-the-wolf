@@ -30,9 +30,9 @@ enemyHealthOfBattle = enemyHealth;
 cout << "First strike!" << endl;
 
 // may need to add variable replacement for attackSequence passing as a parameter
-// playerInflictedDmg = attackSequence(attack, specialAttack);
 
-updateHealth(attackSequence(attack, specialAttack), enemyAttack, enemyHeavyAttack);
+playerInflictedDmg = attackSequence(attack, specialAttack);
+updateHealth(playerInflictedDmg, enemyAttack, enemyHeavyAttack);
 
 bool flag = true;
 while(flag == true){
@@ -48,7 +48,7 @@ if(answer == "Y" || answer == "y"){
     deathDialogue(player);
 } else{
     cout << player << ", " << "You have been given 50 skillpoints, spend it wisely!" << endl;
-    magicalPotions();
+    magicalPotions(specialAttack);
     continue; 
 }
 }
@@ -80,7 +80,7 @@ double enemyAttackSequence(double attack, double heavyAttack){
 
 // void function preferred - player's health/ether is a global variable so we can just change it within magicalPotions()
 
-void magicalPotions(double health, double specialAttack){
+void magicalPotions(double specialAttack){
     double healthEffectiveness = 25 * specialAttack / 0.8;
     double etherEffectiveness = 5 * specialAttack / 1.2;
     string option = "";
@@ -91,7 +91,7 @@ void magicalPotions(double health, double specialAttack){
 
     if(option == "1"){
         skillPoints -= 5;
-        playerHealthOfBattle += healthEffectiveness
+        playerHealthOfBattle += healthEffectiveness;
     } 
     
     else if(option == "2"){
