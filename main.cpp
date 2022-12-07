@@ -3,6 +3,7 @@
 #include "choices.hpp" // dialogue
 #include "classes.hpp" // player class
 #include "battle.hpp" // battle sequence
+#include "battle.cpp"
 
 using namespace std;
 
