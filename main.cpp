@@ -25,6 +25,7 @@ int main(){
 
     if(realmTravel() == "Midgard" || realmTravel() == "midgard"){
         Thor one;
+        chosenCharacter = "Thor";
         Jormungandr two;
 
         SnakeIntro();
@@ -32,6 +33,7 @@ int main(){
         
     } else if(realmTravel() == "Hel" || realmTravel() == "hel") { // Hel
         Tyr one;
+        chosenCharacter = "Tyr";
         Garm two;
 
         GarmIntro();

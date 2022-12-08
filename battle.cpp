@@ -28,27 +28,30 @@ void initiateBattle(string player, bool alive, double attack, double specialAtta
 playerHealthOfBattle = health;
 enemyHealthOfBattle = enemyHealth;
 
-cout << "First strike!" << endl;
+cout << "You strike first!" << endl;
 
 // may need to add variable replacement for attackSequence passing as a parameter
 
 double playerInflictedDmg = attackSequence(attack, specialAttack);
 updateHealth(playerInflictedDmg, enemyAttack, enemyHeavyAttack);
 
+cout << "\nEnemy current health is now: " << enemyHealthOfBattle << endl;
+
 bool flag = true;
 while(flag == true){
 
 string answer = "";
-cout << "Continue attack? [Y/N]" << endl;
+cout << "\nContinue attack? [Y/N]" << endl;
 cin >> answer;
 
 if(answer == "Y" || answer == "y"){
     updateHealth(playerInflictedDmg, enemyAttack, enemyHeavyAttack); // reminder to add ascii art 
     cout << "\nYour current health is now: " << playerHealthOfBattle << endl;
-    cout << "\nEnemy current health is now: "<< enemyHealthOfBattle << endl;
+    cout << "Enemy current health is now: "<< enemyHealthOfBattle << endl;
     continue; 
 } else if(updateHealth(playerInflictedDmg, enemyAttack, enemyHeavyAttack) == false){
     deathDialogue(player);
+    flag = false;
 } else{
     cout << player << ", " << "You have been given the choice to select a potion. Your skillpoints (current: " << skillPoints << ") has an impact on how much you heal by! Make sure to balance it out." << endl;
     magicalPotions(specialAttack);
@@ -89,7 +92,7 @@ void magicalPotions(double specialAttack){
     double etherEffectiveness = 5 * specialAttack / 1.2;
     string option = "";
 
-    cout << "Items in store: " << "Mark of Health [Restores 25 health], Ether Gel [Restores skill points reservoir by 5]" << endl;
+    cout << "Items in store: " << "\nMark of Health [Restores 25 health] \nEther Gel [Restores skill points reservoir by 5]" << endl;
     cout << "\nPlease enter a choice of 1, 2, and so on." << endl;
     cin >> option;
 
@@ -105,6 +108,7 @@ void magicalPotions(double specialAttack){
         skillPoints += etherEffectiveness;
 
         cout << "ETHER GEL SELECTED! Your skill points have been added by 5." << endl;
+        cout << "Current skill points: " << skillPoints << endl;
     } 
     
     else {
