@@ -47,7 +47,7 @@ cout << "\nContinue attack? [Y/N]" << endl;
 cin >> answer;
 
 if(answer == "Y" || answer == "y"){
-    alive = updateHealth(playerInflictedDmg, enemyAttack, enemyHeavyAttack); // reminder to add ascii art 
+    aliveCheck = updateHealth(playerInflictedDmg, enemyAttack, enemyHeavyAttack); // reminder to add ascii art 
     cout << "\nYour current health is now: " << playerHealthOfBattle << endl;
     cout << "Enemy current health is now: "<< enemyHealthOfBattle << endl;
     continue; 
@@ -124,13 +124,9 @@ bool updateHealth(double inflictedAttack, double enemyAttack, double enemyHeavyA
 
 if(enemyHealthOfBattle <= 0){
     return false;
+} else if(playerHealthOfBattle <= 0) {
+    return false;
 } else {
     return true;
-}
-
-if(playerHealthOfBattle <= 0){
-    return false; // dead
-} else {
-    return true; // alive
 }
 }
