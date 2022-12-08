@@ -28,7 +28,7 @@ void initiateBattle(string player, bool alive, double attack, double specialAtta
 playerHealthOfBattle = health;
 enemyHealthOfBattle = enemyHealth;
 
-cout << "You strike first!" << endl;
+cout << "\nYou strike first!" << endl;
 
 // may need to add variable replacement for attackSequence passing as a parameter
 
@@ -38,6 +38,8 @@ updateHealth(playerInflictedDmg, enemyAttack, enemyHeavyAttack);
 cout << "\nEnemy current health is now: " << enemyHealthOfBattle << endl;
 
 bool flag = true;
+bool alive = true;
+
 while(flag == true){
 
 string answer = "";
@@ -45,15 +47,15 @@ cout << "\nContinue attack? [Y/N]" << endl;
 cin >> answer;
 
 if(answer == "Y" || answer == "y"){
-    updateHealth(playerInflictedDmg, enemyAttack, enemyHeavyAttack); // reminder to add ascii art 
+    alive = updateHealth(playerInflictedDmg, enemyAttack, enemyHeavyAttack); // reminder to add ascii art 
     cout << "\nYour current health is now: " << playerHealthOfBattle << endl;
     cout << "Enemy current health is now: "<< enemyHealthOfBattle << endl;
     continue; 
-} else if(updateHealth(playerInflictedDmg, enemyAttack, enemyHeavyAttack) == false){
+} else if(alive == false){
     deathDialogue(player);
     flag = false;
 } else{
-    cout << player << ", " << "You have been given the choice to select a potion. Your skillpoints (current: " << skillPoints << ") has an impact on how much you heal by! Make sure to balance it out." << endl;
+    cout << "\n" << player << ", " << "You have been given the choice to select a potion. Your skillpoints (current: " << skillPoints << ") has an impact on how much you heal by! Make sure to balance it out." << endl;
     magicalPotions(specialAttack);
     continue; 
 }
