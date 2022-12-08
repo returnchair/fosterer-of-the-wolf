@@ -52,7 +52,7 @@ string realmTravel(){
 string choice = "";
 cout << "\nYou wake up in the middle of the Yggdrasil tree. You're only open to two realms as far as you can see." << endl;
 cout << "\nYou see either: \n\nMidgard [Home of the World Serpent] \nHel [Home of the Guardian Hellhound]" << endl;
-cout << "Please type in either Midgard or Hel to begin travel to either realms." << endl;
+cout << "\nPlease type in either Midgard or Hel to begin travel to either realms." << endl;
 cin >> choice;
 return choice;
 }
