@@ -27,7 +27,7 @@ bool aliveCheck = true;
 string aliveDia = "Continue attack? [Y/N]";
 const char* deathDia = "You can hear pages suddenly flipping around you. You read briefly, \"Norse Mythology\". The book asks you to input your name:";
 
-void initiateBattle(string player, bool alive, double attack, double specialAttack, double health, double defense, double speed, double enemyHealth, double enemyAttack, double enemyHeavyAttack){
+void initiateBattle(string player, bool alive, double attack, double specialAttack, double health, double defense, double speed, double enemyHealth, double enemyAttack, double enemyHeavyAttack, string enemyName){
 
 playerHealthOfBattle = health;
 enemyHealthOfBattle = enemyHealth;
@@ -55,7 +55,7 @@ if(aliveCheck == false){
 } else if(answer == "Y" || answer == "y"){
     aliveCheck = updateHealth(playerInflictedDmg, enemyAttack, enemyHeavyAttack); // reminder to add ascii art 
     cout << "\nYour current health is now: " << playerHealthOfBattle << endl;
-    cout << "Enemy current health is now: "<< enemyHealthOfBattle << endl;
+    cout << enemyName << " current health is now: " << enemyHealthOfBattle << endl;
     continue; 
 } else {
     cout << "\n" << player << ", " << "You have been given the choice to select a potion. Your skillpoints (current: " << skillPoints << ") has an impact on how much you heal by! Make sure to balance it out." << endl;

@@ -83,7 +83,7 @@ void SnakeIntro(){
 // endings
 
 void deathDialogue(string character){
-    cout << "\nThe book flies away. You blink. You can see your character, " << character << "You are outside of your body. You are a soul." << endl;
+    cout << "\nThe book flies away. You blink. You can see your character, " << character << ". You are outside of your body. You are a soul." << endl;
     cout << "\n" << character << " falls to his knees." << endl;
 }
 
