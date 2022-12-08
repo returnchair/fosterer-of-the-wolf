@@ -32,7 +32,7 @@ void initiateBattle(string player, bool alive, double attack, double specialAtta
 playerHealthOfBattle = health;
 enemyHealthOfBattle = enemyHealth;
 
-sleep_until(system_clock::now() + seconds(1));
+sleep_until(system_clock::now() + seconds(3));
 cout << "\nYou strike first!" << endl;
 
 // may need to add variable replacement for attackSequence passing as a parameter
