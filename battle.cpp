@@ -22,6 +22,10 @@ int skillPoints = 50;
 
 double playerHealthOfBattle = 1;
 double enemyHealthOfBattle = 1;
+bool aliveCheck = true;
+
+string aliveDia = "Continue attack? [Y/N]";
+const char* deathDia = "You can hear pages suddenly flipping around you. You read briefly, \"Norse Mythology\". The book asks you to input your name:";
 
 void initiateBattle(string player, bool alive, double attack, double specialAttack, double health, double defense, double speed, double enemyHealth, double enemyAttack, double enemyHeavyAttack){
 
@@ -38,23 +42,22 @@ updateHealth(playerInflictedDmg, enemyAttack, enemyHeavyAttack);
 cout << "\nEnemy current health is now: " << enemyHealthOfBattle << endl;
 
 bool flag = true;
-bool aliveCheck = true;
 
 while(flag == true){
 
 string answer = "";
-cout << "\nContinue attack? [Y/N]" << endl;
+cout << "\n" << aliveDia << endl;
 cin >> answer;
 
-if(answer == "Y" || answer == "y"){
+if(aliveCheck == false){
+    deathDialogue(player);
+    break;
+} else if(answer == "Y" || answer == "y"){
     aliveCheck = updateHealth(playerInflictedDmg, enemyAttack, enemyHeavyAttack); // reminder to add ascii art 
     cout << "\nYour current health is now: " << playerHealthOfBattle << endl;
     cout << "Enemy current health is now: "<< enemyHealthOfBattle << endl;
     continue; 
-} else if(aliveCheck == false){
-    deathDialogue(player);
-    flag = false;
-} else{
+} else {
     cout << "\n" << player << ", " << "You have been given the choice to select a potion. Your skillpoints (current: " << skillPoints << ") has an impact on how much you heal by! Make sure to balance it out." << endl;
     magicalPotions(specialAttack);
     continue; 
@@ -67,7 +70,7 @@ double attackSequence(double attack, double specialAttack){
     int crit = dist(rd);
 
     if (crit == 10){
-         double inflictedDmg = attack * specialAttack;
+         double inflictedDmg = attack * (specialAttack/250);
          return inflictedDmg;
      } else {
          return inflictedDmg;
@@ -79,7 +82,7 @@ double enemyAttackSequence(double attack, double heavyAttack){
     int crit = dist(rd);
 
     if (crit == 10){
-         double inflictedDmg = attack * heavyAttack;
+         double inflictedDmg = attack * (heavyAttack/250);
          return inflictedDmg;
 
      } else {
@@ -123,8 +126,10 @@ bool updateHealth(double inflictedAttack, double enemyAttack, double enemyHeavyA
     enemyHealthOfBattle -= inflictedAttack;
 
 if(enemyHealthOfBattle <= 0){
+    aliveDia = aliveDia.replace(0, 22, deathDia);
     return false;
 } else if(playerHealthOfBattle <= 0) {
+    aliveDia = aliveDia.replace(0, 22, deathDia); 
     return false;
 } else {
     return true;

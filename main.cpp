@@ -38,7 +38,7 @@ int main(){
         chosenCharacter = "Tyr";
         Garm two;
 
-        cout << one.alive << " " << one.attack << " " << one.magicAttack << " " << one.health << " " << one.defense << " " << one.speed << " " << two.health << " " << two.attack << " " << two.heavyAttack << endl;
+        cout << one.alive << " " << one.attack << " " << one.heavyAttack << " " << one.health << " " << one.defense << " " << one.speed << " " << two.health << " " << two.attack << " " << two.heavyAttack << endl;
 
         GarmIntro();
         initiateBattle(chosenCharacter, one.alive, one.attack, one.heavyAttack, one.health, one.defense, one.speed, two.health, two.attack, two.heavyAttack);
