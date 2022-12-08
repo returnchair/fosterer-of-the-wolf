@@ -43,13 +43,14 @@ cout << "Continue attack? [Y/N]" << endl;
 cin >> answer;
 
 if(answer == "Y" || answer == "y"){
-    updateHealth(playerInflictedDmg, enemyAttack, enemyHeavyAttack);
     updateHealth(playerInflictedDmg, enemyAttack, enemyHeavyAttack); // reminder to add ascii art 
+    cout << "\nYour current health is now: " << playerHealthOfBattle << endl;
+    cout << "\nEnemy current health is now: "<< enemyHealthOfBattle << endl;
     continue; 
 } else if(updateHealth(playerInflictedDmg, enemyAttack, enemyHeavyAttack) == false){
     deathDialogue(player);
 } else{
-    cout << player << ", " << "You have been given 50 skillpoints, spend it wisely!" << endl;
+    cout << player << ", " << "You have been given the choice to select a potion. Your skillpoints (current: " << skillPoints << ") has an impact on how much you heal by! Make sure to balance it out." << endl;
     magicalPotions(specialAttack);
     continue; 
 }
@@ -84,7 +85,7 @@ double enemyAttackSequence(double attack, double heavyAttack){
 // void function preferred - player's health/ether is a global variable so we can just change it within magicalPotions()
 
 void magicalPotions(double specialAttack){
-    double healthEffectiveness = 25 * specialAttack / 0.8;
+    double healthEffectiveness = 5 * skillPoints / 0.8;
     double etherEffectiveness = 5 * specialAttack / 1.2;
     string option = "";
 
@@ -95,10 +96,15 @@ void magicalPotions(double specialAttack){
     if(option == "1"){
         skillPoints -= 5;
         playerHealthOfBattle += healthEffectiveness;
+
+        cout << "MARK OF HEALTH SELECTED! Your health is now " << playerHealthOfBattle << endl;
+        cout << "Your skill points have been reduced by 5." << endl;
     } 
     
     else if(option == "2"){
         skillPoints += etherEffectiveness;
+
+        cout << "ETHER GEL SELECTED! Your skill points have been added by 5." << endl;
     } 
     
     else {

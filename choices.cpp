@@ -18,7 +18,7 @@ std::ostream& bold_off(std::ostream& os)
 // game intro
 
 void Intro(){ // does not return
-    cout << "Welcome to Fosterer of the Wolf and Serpent." << endl;
+    cout << "\nWelcome to Fosterer of the Wolf and Serpent." << endl;
     cout << "Through out this game you will play as your desired choosen character. " << endl;
     cout << "Make your selction now! Enter Thor for Thor or Tyr for Tyr." << endl;
 }
@@ -50,7 +50,7 @@ bool Choice(string Player){
 
 string realmTravel(){
 string choice = "";
-cout << "You wake up in the middle of the Yggdrasil tree. You're only open to two realms as far as you can see." << endl;
+cout << "\nYou wake up in the middle of the Yggdrasil tree. You're only open to two realms as far as you can see." << endl;
 cout << "You see either Midgard [Home of the World Serpent] or Hel [Home of the Guardian Hellhound]" << endl;
 cout << "Please type in either Midgard or Hel to begin travel to either realms." << endl;
 cin >> choice;
@@ -71,7 +71,7 @@ void GarmIntro(){
 }
 
 void SnakeIntro(){
-        cout << "Thor arrives to the realm of midguard preapared to fight the world serpent. Walking around looking for this snake he starts to get furious, so he yells \"Come out snake I only want to talk\"." << endl;
+        cout << "\nThor arrives to the realm of midguard preapared to fight the world serpent. Walking around looking for this snake he starts to get furious, so he yells \"Come out snake I only want to talk\"." << endl;
         cout << "With a slight smirk on his face, he looks left then slowly looks right. Aware that the snake is following behind him he continues to forward." << endl;
         cout << "The world serpent thinking he can finally get the drop on Thor, the snake jumps up and tries to land on thor." << endl;
         cout << "\"It's about damn time\" as he realeses his hammer upward hitting the serpent from the jaw and sending it flying backwards. Thor walks toward the serpent ready to fight and yells \"Bring it snake\".  " << endl;
@@ -94,7 +94,7 @@ void ThorEnding(){
 }
 
 void TyrEnding(){
-    cout << "The God of War faught a tough battle against Garmr. The God of War manages to kill the guard dog of hel. With the death of the gods" << endl;
+    cout << "\nThe God of War faught a tough battle against Garmr. The God of War manages to kill the guard dog of hel. With the death of the gods" << endl;
     cout << "Loki, Hemidall, Thor, Freyr as Ragnorok arrives " << endl;
 
 }
