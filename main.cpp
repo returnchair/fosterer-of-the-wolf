@@ -39,7 +39,7 @@ int main(){
         // cout << one.alive << " " << one.attack << " " << one.heavyAttack << " " << one.health << " " << one.defense << " " << one.speed << " " << two.health << " " << two.attack << " " << two.heavyAttack << endl;
 
         GarmIntro();
-        initiateBattle(chosenCharacter, one.alive, one.attack, one.heavyAttack, one.health, one.defense, one.speed, two.health, two.attack, two.heavyAttack, "Garm");
+        initiateBattle(chosenCharacter, one.alive, one.attack, one.magicAttack, one.health, one.defense, one.speed, two.health, two.attack, two.heavyAttack, "Garm");
 
     } else {
       cout << "Please re-read the dialogue given otherwise you may not be fit for this game!" << endl; // brain check lol

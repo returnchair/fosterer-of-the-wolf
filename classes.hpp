@@ -23,7 +23,7 @@ class Tyr{
     bool alive;
     string name = "Tyr";
 
-    Tyr(bool alive1 = true, double attack = 350, double heavyAttack1 = 350, double health1 = 2500, double defense1 = 140, double speed1 = 10);
+    Tyr(bool alive1 = true, double attack = 350, double magicAttack1 = 350, double health1 = 2500, double defense1 = 140, double speed1 = 10);
 };
 
 // bosses
