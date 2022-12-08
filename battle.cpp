@@ -38,7 +38,7 @@ updateHealth(playerInflictedDmg, enemyAttack, enemyHeavyAttack);
 cout << "\nEnemy current health is now: " << enemyHealthOfBattle << endl;
 
 bool flag = true;
-bool alive = true;
+bool aliveCheck = true;
 
 while(flag == true){
 
@@ -51,7 +51,7 @@ if(answer == "Y" || answer == "y"){
     cout << "\nYour current health is now: " << playerHealthOfBattle << endl;
     cout << "Enemy current health is now: "<< enemyHealthOfBattle << endl;
     continue; 
-} else if(alive == false){
+} else if(aliveCheck == false){
     deathDialogue(player);
     flag = false;
 } else{
