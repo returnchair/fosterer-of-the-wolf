@@ -57,9 +57,11 @@ void Intro(){ // does not return
 
 string realmTravel(){
 string choice = "";
+
 cout << "\nYou wake up in the middle of the Yggdrasil tree. You're only open to two realms as far as you can see." << endl;
 cout << "\nYou see either: \n\nMidgard [Home of the World Serpent] \nHel [Home of the Guardian Hellhound]" << endl;
 cout << "\nPlease type in either Midgard or Hel to begin travel to either realms." << endl;
+
 cin >> choice;
 return choice;
 }
@@ -71,27 +73,27 @@ return choice;
 void GarmIntro(){
     cout << "\nAs Tyr arrives to the gates of hel trying to prevent ragnorok, Tyr stops in his place hearing something sneaking up from behind him." << endl;
     sleep_until(system_clock::now() + seconds(2));
-    cout << "**Swoosh** He turns around expecting to see something horrific but nothing is there." << endl;
+    cout << "\n**Swoosh** He turns around expecting to see something horrific but nothing is there." << endl;
     sleep_until(system_clock::now() + seconds(2));
     cout << "\nTyr looks up to see something hovering above him. Superised he stands still in shock as the creature hits Tyr acroos the terrain." << endl;
     sleep_until(system_clock::now() + seconds(2));
-    cout << "Standing up Tyr realizes this wont be an easy fight as he is faced against " << bold_on << "Garm" << bold_off << " the guard dog of Hel." << endl;
+    cout << "\nStanding up Tyr realizes this wont be an easy fight as he is faced against " << bold_on << "Garm" << bold_off << " the guard dog of Hel." << endl;
     sleep_until(system_clock::now() + seconds(2));
-    cout << "Tyr looks at Garm realizing that he is chained to the gates of hel. Thinking he is safe he tries to walk around but all of a sudden **snap** " << endl;
+    cout << "\nTyr looks at Garm realizing that he is chained to the gates of hel. Thinking he is safe he tries to walk around but all of a sudden **snap** " << endl;
     sleep_until(system_clock::now() + seconds(1));
-    cout << "The chains keeping garm near the gates snap and Garm is now free." << endl;
+    cout << "\nThe chains keeping garm near the gates snap and Garm is now free." << endl;
 }
 
 void SnakeIntro(){
         cout << "\nThor arrives to the realm of midguard preapared to fight the world serpent. Walking around looking for this snake he starts to get furious, so he yells \"Come out snake I only want to talk\"." << endl;
         sleep_until(system_clock::now() + seconds(2));
-        cout << "With a slight smirk on his face, he looks left then slowly looks right. Aware that the snake is following behind him he continues to forward." << endl;
+        cout << "\nWith a slight smirk on his face, he looks left then slowly looks right. Aware that the snake is following behind him he continues to forward." << endl;
         sleep_until(system_clock::now() + seconds(2));
-        cout << "The world serpent thinking he can finally get the drop on Thor, the snake jumps up and tries to land on thor." << endl;
+        cout << "\nThe world serpent thinking he can finally get the drop on Thor, the snake jumps up and tries to land on thor." << endl;
         sleep_until(system_clock::now() + seconds(2));
-        cout << "\"It's about damn time\" as he realeses his hammer upward hitting the serpent from the jaw and sending it flying backwards. Thor walks toward the serpent ready to fight and yells \"Bring it snake\".  " << endl;
+        cout << "\n\"It's about damn time\" as he realeses his hammer upward hitting the serpent from the jaw and sending it flying backwards. Thor walks toward the serpent ready to fight and yells \"Bring it snake\".  " << endl;
         sleep_until(system_clock::now() + seconds(1));
-        cout << "The serpent lets out a pericing roar, then thor get into his battle stance" << endl;
+        cout << "\nThe serpent lets out a pericing roar, then thor get into his battle stance" << endl;
 }
 
 // endings

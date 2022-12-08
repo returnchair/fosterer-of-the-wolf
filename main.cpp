@@ -10,16 +10,11 @@ int main(){
 
     string chosenCharacter = "";
 
-// battle.cpp logic:
-// battles are done within one function spraeding across many functions such as a fight sequence
-// battle.cpp will include a check to see if there's any skillpoints left
-// battle.cpp will also include a health check for both the boss and player
-
 // to do list
 
-// updateStatus for ether & health
-// ensure that endings are met
-// dialogue is fixed
+// updateStatus for ether & health + done
+// ensure that endings are met + done
+// dialogue is fixed + done
 // ascii art 
 
 
@@ -31,7 +26,7 @@ int main(){
         // cout << one.alive << " " << one.attack << " " << one.magicAttack << " " << one.health << " " << one.defense << " " << one.speed << " " << two.health << " " << two.attack << " " << two.heavyAttack << endl;
 
         SnakeIntro();
-        initiateBattle(chosenCharacter, one.alive, one.attack, one.magicAttack, one.health, one.defense, one.speed, two.health, two.attack, two.heavyAttack, Jormungandr);
+        initiateBattle(chosenCharacter, one.alive, one.attack, one.magicAttack, one.health, one.defense, one.speed, two.health, two.attack, two.heavyAttack, "Jormungandr");
         
     } else if(realmTravel() == "Hel" || realmTravel() == "hel") { // Hel
         Tyr one;
@@ -41,8 +36,10 @@ int main(){
         // cout << one.alive << " " << one.attack << " " << one.heavyAttack << " " << one.health << " " << one.defense << " " << one.speed << " " << two.health << " " << two.attack << " " << two.heavyAttack << endl;
 
         GarmIntro();
-        initiateBattle(chosenCharacter, one.alive, one.attack, one.heavyAttack, one.health, one.defense, one.speed, two.health, two.attack, two.heavyAttack, Garm);
+        initiateBattle(chosenCharacter, one.alive, one.attack, one.heavyAttack, one.health, one.defense, one.speed, two.health, two.attack, two.heavyAttack, "Garm");
     }
+
+// yes it's rigged
 
 if(chosenCharacter == "Tyr"){
     TyrEnding();
