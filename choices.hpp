@@ -5,7 +5,7 @@ using namespace std;
 void Intro();
 bool Choice(string Player);
 
-string realmTravel();
+//
 
 void ThorEnding();
 void TyrEnding();

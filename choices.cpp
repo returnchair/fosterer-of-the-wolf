@@ -55,7 +55,7 @@ void Intro(){ // does not return
 // dialogue main
 // dialogure main
 
-string realmTravel(){
+/* string realmTravel(){
 string choice = "";
 
 cout << "\nYou wake up in the middle of the Yggdrasil tree. You're only open to two realms as far as you can see." << endl;
@@ -64,7 +64,7 @@ cout << "\nPlease type in either Midgard or Hel to begin travel to either realms
 
 cin >> choice;
 return choice;
-}
+} */
 
 // intros
 // intros
