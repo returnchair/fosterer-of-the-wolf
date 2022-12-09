@@ -31,13 +31,10 @@ bool pAlive = 1;
 double eStats[4] = {82, 23, 12, 1};
 string items[2] = {"Potion", "Ether"};
 int numbItems[2] = {2, 2};
+int ethers = 3;
+int potions = 3;
 
 //player, enemy, pStats, eStats
-
-int main(){
-    battle();
-    return 0;
-}
 
 void battle () {
     string input = "";
@@ -72,38 +69,48 @@ void battle () {
             cout << "Inflicted " << pStats[1] << " damage! " << enemy << " is at " << eStats[0] << " health!" << endl;
         }
     } else if (input == "Item" || input == "item"){
-        cout << "Items: " << items << endl;
+        cout << "Items: Potions x" << potions << " Ethers x" << ethers << endl;
         cout << "Type one out to use, be back out, type anything not in the item list" << endl;
         string select = "";
         cin >> select;
         if(select == "potion" || select == "Potion"){
-            cout << "Potion: Restores 50 health." << endl;
-            cout << "Use Potion?" << endl;
-            string use = "";
-            cin >> use;
-            if(use == "Yes" || use == "yes"){
-                if((pStats[0] + 50) <= pStats[4]){
-                    pStats[0] += 50;
+            if(potions > 0){
+                cout << "Potion: Restores 50 health." << endl;  pStats[0] = pStats[4];
+                }
+                cout << "Use Potion?" << endl;
+                string use = "";
+                cin >> use;
+                if(use == "Yes" || use == "yes"){
+                    if((pStats[0] + 50) <= pStats[4]){
+                        pStats[0] += 50;
+                    } else {
+                        pStats[0] = pStats[4];
+                    }
                 } else {
-                    pStats[0] = pStats[4];
+                    continue;
                 }
             } else {
+                cout << "You're out of potions!" << endl;
                 continue;
             }
         } else if (select == "ether" || select == "Ether"){
-            cout << "Ether: Restores 20 skill points." << endl;
-            cout << "Use Ether?" << endl;
-            string use = "";
-            cin >> use;
-            if(use == "Yes" || use == "yes"){
-                if((pStats[3] + 20) <= pStats[5]){
-                    pStats[3] += 20;
+            if(ethers > 0){
+                cout << "Ether: Restores 20 skill points." << endl;
+                cout << "Use Ether?" << endl;
+                string use = "";
+                cin >> use;
+                if(use == "Yes" || use == "yes"){
+                    if((pStats[3] + 20) <= pStats[5]){
+                        pStats[3] += 20;
+                    } else {
+                        pStats[3] = pStats[5];
+                    }
                 } else {
-                    pStats[3] = pStats[5];
+                    continue;
                 }
-            } else {
-                continue;
-            }
+        } else {
+            cout << "You're out of ethers!" << endl;
+        }
         }
     } else if (input == "Skill" || input == "skill"){
         cout << "Tyr has " << bold_on << pStats[3] << " skill points left!" << bold_off << endl;
@@ -200,7 +207,4 @@ void battle () {
         eStatus = 0;
         ePoison = 0;
     }
-    }
-
-
 }

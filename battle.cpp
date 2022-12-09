@@ -17,6 +17,20 @@ random_device sp;
 uniform_int_distribution<int> skill(1,20);
 uniform_int_distribution<int> dist(1,10);
 
+/*
+    Logic behind battle.cpp:
+    *   Battle begins off a initiateBattle function being called from main.cpp
+    *   Skill points represent how much a player can use a potion incremented by 5
+    *   Player will strike first onto enemy / an update health function is present within battle.cpp that checks if either enemy or player's health is below 0 and then replaces the ddialogue for "Continue attack [Y/N]" 
+    
+    *   If player inputs N for "Continue attack [Y/N]" magicalPotions function will be called
+    *   If player inputs Y for "Continue attack [Y/N]" updatehealth function will be called 
+    *   If player is dead (checked through while loop) -> death dialogue is called and while loop reaks
+*/
+
+// defense/block/resistance against dmg
+// poison/elemental status
+
 int skillPoints = 10;
 
 double playerHealthOfBattle = 1;
@@ -25,6 +39,7 @@ bool aliveCheck = true;
 
 string aliveDia = "Continue attack? [Y/N]";
 const char* deathDia = "You can hear pages suddenly flipping around you. You read briefly, \"Norse Mythology\". The book asks you to input your name:";
+const char* aliveDia2 = "You rest on your feet after attacking. Do you wish to continue attacking or use a potion(s)?";
 
 void initiateBattle(string player, bool alive, double attack, double specialAttack, double health, double defense, double speed, double enemyHealth, double enemyAttack, double enemyHeavyAttack, string enemyName){
 
@@ -34,15 +49,15 @@ enemyHealthOfBattle = enemyHealth;
 sleep_until(system_clock::now() + seconds(3));
 cout << "\nYou strike first!" << endl;
 
-// may need to add variable replacement for attackSequence passing as a parameter
-
 double playerInflictedDmg = attackSequence(attack, specialAttack);
 updateHealth(playerInflictedDmg, enemyAttack, enemyHeavyAttack);
 
 cout << "\nEnemy current health is now: " << enemyHealthOfBattle << endl;
 
-bool flag = true;
+// while loop for entire enemy fight
 
+bool flag = true;
+aliveDia = aliveDia.replace(0, 22, alivaDia2); 
 while(flag == true){
 
 string answer = "";
@@ -53,7 +68,7 @@ if(aliveCheck == false){
     deathDialogue(player);
     break;
 } else if(answer == "Y" || answer == "y"){
-    aliveCheck = updateHealth(playerInflictedDmg, enemyAttack, enemyHeavyAttack); // reminder to add ascii art 
+    aliveCheck = updateHealth(playerInflictedDmg, enemyAttack, enemyHeavyAttack); 
     cout << "\nYour current health is now: " << playerHealthOfBattle << endl;
     cout << enemyName << " current health is now: " << enemyHealthOfBattle << endl;
     continue; 
@@ -64,6 +79,12 @@ if(aliveCheck == false){
 }
 }
 }
+
+// player attack enemy 
+
+// show inflictedDmg against enemy
+// type of attacks?
+// randomized dmg?
 
 double attackSequence(double attack, double specialAttack){
     double inflictedDmg = attack;
@@ -76,6 +97,11 @@ double attackSequence(double attack, double specialAttack){
          return inflictedDmg;
       }
 }
+
+// enemy attack player
+
+// show inflictedDmg against enemy
+// randomized dmg?
 
 double enemyAttackSequence(double attack, double heavyAttack){
     double inflictedDmg = attack;
@@ -90,7 +116,8 @@ double enemyAttackSequence(double attack, double heavyAttack){
       }
 }
 
-// void function preferred - player's health/ether is a global variable so we can just change it within magicalPotions()
+// magicalPotions is a function that gives the user various options of potions
+// magicalPotions runs a check if the player has sufficient enough skillPoints to use a potion
 
 void magicalPotions(double specialAttack){
     double healthEffectiveness = 25 * specialAttack;
@@ -122,6 +149,9 @@ void magicalPotions(double specialAttack){
         cout << "You picked nothing so this opening was closed!" << endl;
     }
 }
+
+// updateHealth is a function that receives parameters to determine the player's and enemys health after an attack from both characters
+// updateHealth returns a false & replaces intitial while loop dialogue if player or enemy is dead
 
 bool updateHealth(double inflictedAttack, double enemyAttack, double enemyHeavyAttack){
     playerHealthOfBattle -= enemyAttackSequence(enemyAttack, enemyHeavyAttack);

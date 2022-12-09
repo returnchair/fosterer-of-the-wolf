@@ -16,7 +16,7 @@ int main(){
     cout << "\nPlease type in either Midgard or Hel to begin travel to either realms." << endl;
 
   cin >> choice;
-  
+
 if(choice == "Midgard" || choice == "midgard"){
         Thor one;
         chosenCharacter = "Thor";
@@ -44,6 +44,6 @@ if(chosenCharacter == "Tyr"){
     RollCredits();
 } else if (chosenCharacter == "Thor"){
     ThorEnding();
-    rollCredits();
+    RollCredits();
 }
 }
