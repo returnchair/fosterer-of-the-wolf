@@ -70,7 +70,7 @@ double attackSequence(double attack, double specialAttack){
     int crit = dist(rd);
 
     if (crit == 10){
-         double inflictedDmg = attack * (specialAttack/250);
+         double inflictedDmg = attack + 250;
          return inflictedDmg;
      } else {
          return inflictedDmg;
