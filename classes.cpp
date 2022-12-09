@@ -25,10 +25,10 @@ Thor::Thor(bool alive1, double attack1, double magicAttack1, double health1, dou
     speed = speed1;
 }
 
-Tyr::Tyr(bool alive1, double attack1, double heavyAttack1, double health1, double defense1, double speed1){
+Tyr::Tyr(bool alive1, double attack1, double magicAttack1, double health1, double defense1, double speed1){
     alive = alive1;
     attack = attack1;
-    heavyAttack = heavyAttack1;
+    magicAttack = magicAttack1;
     health = health1;
     defense = defense1;
     speed = speed1;

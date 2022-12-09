@@ -19,7 +19,7 @@ class Tyr{
     public:
 
     bool player;
-    double attack, heavyAttack, health, speed, defense;
+    double attack, magicAttack, health, speed, defense;
     bool alive;
     string name = "Tyr";
 
