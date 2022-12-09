@@ -103,7 +103,7 @@ void SnakeIntro(){
 void deathDialogue(string character){
     cout << "\nThe book flies away. You blink. You can see your character, " << character << ". You are outside of your body. You are a soul." << endl;
     sleep_until(system_clock::now() + seconds(1));
-    cout << "\n" << character << " falls to his knees." << endl;
+    cout << "\n" << character << "feels a sharp pain." << endl;
 }
 
 void ThorEnding(){

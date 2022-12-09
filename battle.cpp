@@ -101,7 +101,7 @@ void magicalPotions(double specialAttack){
     cout << "\nPlease enter a choice of 1, 2, and so on." << endl;
     cin >> option;
 
-    if(option == "1"){
+    if(option == "1" && skilPoints >= 5){
         skillPoints -= 5;
         playerHealthOfBattle += healthEffectiveness;
 
@@ -109,14 +109,16 @@ void magicalPotions(double specialAttack){
         cout << "Your skill points have been reduced by 5 and is now: " << skillPoints << endl;
     } 
     
-    else if(option == "2"){
+    else if(option == "2" && skillPoints >= 5){
         skillPoints += etherEffectiveness;
 
         cout << "ETHER GEL SELECTED! Your skill points have been added by 5." << endl;
         cout << "Current skill points: " << skillPoints << endl;
-    } 
-    
-    else {
+
+    } else if(skillPoints <= 4){
+        cout << "You do not have enough skill points to use a potion." << endl;
+        
+    } else {
         cout << "You picked nothing so this opening was closed!" << endl;
     }
 }
