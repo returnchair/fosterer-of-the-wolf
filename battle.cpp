@@ -17,7 +17,7 @@ random_device sp;
 uniform_int_distribution<int> skill(1,20);
 uniform_int_distribution<int> dist(1,10);
 
-int skillPoints = 50;
+int skillPoints = 10;
 
 double playerHealthOfBattle = 1;
 double enemyHealthOfBattle = 1;
@@ -93,8 +93,8 @@ double enemyAttackSequence(double attack, double heavyAttack){
 // void function preferred - player's health/ether is a global variable so we can just change it within magicalPotions()
 
 void magicalPotions(double specialAttack){
-    double healthEffectiveness = 5 * skillPoints / 0.8;
-    double etherEffectiveness = 5 * specialAttack / 1.2;
+    double healthEffectiveness = 25 * specialAttack;
+    double etherEffectiveness = 2 * specialAttack;
     string option = "";
 
     cout << "Items in store: " << "\nMark of Health [Restores 25 health] \nEther Gel [Restores skill points reservoir by 5]" << endl;
@@ -106,7 +106,7 @@ void magicalPotions(double specialAttack){
         playerHealthOfBattle += healthEffectiveness;
 
         cout << "MARK OF HEALTH SELECTED! Your health is now " << playerHealthOfBattle << endl;
-        cout << "Your skill points have been reduced by 5 and is now" << skillPoints << endl;
+        cout << "Your skill points have been reduced by 5 and is now: " << skillPoints << endl;
     } 
     
     else if(option == "2"){
