@@ -55,6 +55,8 @@ updateHealth(playerInflictedDmg, enemyAttack, enemyHeavyAttack);
 sleep_until(system_clock::now() + seconds(2));
 cout << "\nEnemy current health is now: " << enemyHealthOfBattle << endl;
 
+// aliveDia = aliveDia.replace(0, 22, aliveDia2); 
+
 // while loop for entire enemy fight
 
 bool flag = true;
@@ -72,12 +74,10 @@ if(aliveCheck == false){
     aliveCheck = updateHealth(playerInflictedDmg, enemyAttack, enemyHeavyAttack); 
     cout << "\nYour current health is now: " << playerHealthOfBattle << endl;
     cout << enemyName << " current health is now: " << enemyHealthOfBattle << endl;
-    aliveDia = aliveDia.replace(0, 22, aliveDia2); 
     continue; 
 } else {
     cout << "\n" << player << ", " << "You have been given the choice to select a potion. Your skillpoints (current: " << skillPoints << ") has an impact on how much you heal by! Make sure to balance it out." << endl;
     magicalPotions(specialAttack);
-    aliveDia = aliveDia.replace(0, 22, aliveDia2); 
     continue; 
 }
 }
