@@ -44,11 +44,13 @@ if(choice == "Midgard" || choice == "midgard"){
       cout << "Please re-read the dialogue given otherwise you may not be fit for this game!" << endl; // brain check lol
     }
 
-// yes it's rigged
+// yes it's rigged against the boss
 
 if(chosenCharacter == "Tyr"){
     TyrEnding();
+    RollCredits();
 } else if (chosenCharacter == "Thor"){
     ThorEnding();
+    rollCredits();
 }
 }
