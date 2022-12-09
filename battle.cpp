@@ -39,7 +39,7 @@ bool aliveCheck = true;
 
 string aliveDia = "Continue attack? [Y/N]";
 const char* deathDia = "You can hear pages suddenly flipping around you. You read briefly, \"Norse Mythology\". The book asks you to input your name:";
-const char* aliveDia2 = "You rest on your feet after attacking. Do you wish to continue attacking or look through yoour bag? [Y/N]";
+const char* aliveDia2 = "You rest on your feet after attacking. Do you wish to continue attacking or look through your bag of potions? [Y/N]";
 
 void initiateBattle(string player, bool alive, double attack, double specialAttack, double health, double defense, double speed, double enemyHealth, double enemyAttack, double enemyHeavyAttack, string enemyName){
 
@@ -52,15 +52,16 @@ cout << "\nYou strike first!" << endl;
 double playerInflictedDmg = attackSequence(attack, specialAttack);
 updateHealth(playerInflictedDmg, enemyAttack, enemyHeavyAttack);
 
+sleep_until(system_clock::now() + seconds(2));
 cout << "\nEnemy current health is now: " << enemyHealthOfBattle << endl;
 
 // while loop for entire enemy fight
 
 bool flag = true;
-aliveDia = aliveDia.replace(0, 22, alivaDia2); 
 while(flag == true){
 
 string answer = "";
+sleep_until(system_clock::now() + seconds(2));
 cout << "\n" << aliveDia << endl;
 cin >> answer;
 
@@ -71,10 +72,12 @@ if(aliveCheck == false){
     aliveCheck = updateHealth(playerInflictedDmg, enemyAttack, enemyHeavyAttack); 
     cout << "\nYour current health is now: " << playerHealthOfBattle << endl;
     cout << enemyName << " current health is now: " << enemyHealthOfBattle << endl;
+    aliveDia = aliveDia.replace(0, 22, aliveDia2); 
     continue; 
 } else {
     cout << "\n" << player << ", " << "You have been given the choice to select a potion. Your skillpoints (current: " << skillPoints << ") has an impact on how much you heal by! Make sure to balance it out." << endl;
     magicalPotions(specialAttack);
+    aliveDia = aliveDia.replace(0, 22, aliveDia2); 
     continue; 
 }
 }
