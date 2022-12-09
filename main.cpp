@@ -20,7 +20,7 @@ int main(){
 // to do list
 
 // ascii art 
-nf(choice == "Midgard" || choice == "midgard"){
+if(choice == "Midgard" || choice == "midgard"){
         Thor one;
         chosenCharacter = "Thor";
         Jormungandr two;

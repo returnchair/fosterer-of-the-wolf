@@ -85,15 +85,15 @@ void GarmIntro(){
 }
 
 void SnakeIntro(){
-        cout << "\nThor arrives to the realm of midguard preapared to fight the world serpent. Walking around looking for this snake he starts to get furious, so he yells \"Come out snake I only want to talk\"." << endl;
+        cout << "\nThor arrives to the realm of midguard preapared to fight The World Serpent. Walking around looking for this snake he starts to get furious, so he yells \"Come out snake I only want to talk\"." << endl;
         sleep_until(system_clock::now() + seconds(2));
         cout << "\nWith a slight smirk on his face, he looks left then slowly looks right. Aware that the snake is following behind him he continues to forward." << endl;
         sleep_until(system_clock::now() + seconds(2));
-        cout << "\nThe world serpent thinking he can finally get the drop on Thor, the snake jumps up and tries to land on thor." << endl;
+        cout << "\nThe world serpent thinking he can finally get the drop on Thor, the snake jumps up and tries to land on Thor." << endl;
         sleep_until(system_clock::now() + seconds(2));
         cout << "\n\"It's about damn time\" as he realeses his hammer upward hitting the serpent from the jaw and sending it flying backwards. Thor walks toward the serpent ready to fight and yells \"Bring it snake\".  " << endl;
         sleep_until(system_clock::now() + seconds(1));
-        cout << "\nThe serpent lets out a pericing roar, then thor get into his battle stance" << endl;
+        cout << "\nThe serpent lets out a piercing roar, then Thor get into his battle stance" << endl;
 }
 
 // endings
