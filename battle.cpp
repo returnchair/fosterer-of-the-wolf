@@ -1,4 +1,3 @@
-//Made by (mostly) Joshua and Bobby. As well as battle.hpp
 #include <string>
 #include <stdlib.h>
 #include <chrono>
