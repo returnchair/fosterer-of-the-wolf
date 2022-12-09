@@ -26,7 +26,7 @@ class Tyr{
     Tyr(bool alive1 = true, double attack = 5350, double magicAttack1 = 5, double health1 = 2500, double defense1 = 140, double speed1 = 10);
 };
 
-// bosses
+// enemies
 
 class Garm{
     public:

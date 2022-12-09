@@ -16,16 +16,11 @@ int main(){
     cout << "\nPlease type in either Midgard or Hel to begin travel to either realms." << endl;
 
   cin >> choice;
-
-// to do list
-
-// ascii art 
+  
 if(choice == "Midgard" || choice == "midgard"){
         Thor one;
         chosenCharacter = "Thor";
         Jormungandr two;
-
-        // cout << one.alive << " " << one.attack << " " << one.magicAttack << " " << one.health << " " << one.defense << " " << one.speed << " " << two.health << " " << two.attack << " " << two.heavyAttack << endl;
 
         SnakeIntro();
         initiateBattle(chosenCharacter, one.alive, one.attack, one.magicAttack, one.health, one.defense, one.speed, two.health, two.attack, two.heavyAttack, "Jormungandr");
@@ -34,8 +29,6 @@ if(choice == "Midgard" || choice == "midgard"){
         Tyr one;
         chosenCharacter = "Tyr";
         Garm two;
-
-        // cout << one.alive << " " << one.attack << " " << one.heavyAttack << " " << one.health << " " << one.defense << " " << one.speed << " " << two.health << " " << two.attack << " " << two.heavyAttack << endl;
 
         GarmIntro();
         initiateBattle(chosenCharacter, one.alive, one.attack, one.magicAttack, one.health, one.defense, one.speed, two.health, two.attack, two.heavyAttack, "Garm");

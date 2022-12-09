@@ -30,42 +30,6 @@ void Intro(){ // does not return
     cout << "\nWelcome to Fosterer of the Wolf and Serpent." << endl;
 }
 
-// character choosing
-// character choosing / return
-// character choosing
-
-/* bool Choice(string Player){ 
-    string PlayerInput = "";
-    cout << "enter" << endl;
-    cin >> PlayerInput;
-    if(PlayerInput == "Tyr" || PlayerInput == "tyr"){
-        cout << "You have chosen " << bold_on << "Tyr." << bold_off << endl;
-        cout << "Tyr is a god. The God of War and Justice." << endl;
-        return false;
-    }
-    
-    else if(PlayerInput == "Thor" || PlayerInput == "thor"){
-        cout << "You have chosen " << bold_on << "Thor." << bold_off << endl;
-        cout << "Thor is a god. The God of Thunder." << endl;
-        return true;
-}
-} */
-
-// dialogue main
-// dialogue main
-// dialogure main
-
-/* string realmTravel(){
-string choice = "";
-
-cout << "\nYou wake up in the middle of the Yggdrasil tree. You're only open to two realms as far as you can see." << endl;
-cout << "\nYou see either: \n\nMidgard [Home of the World Serpent] \nHel [Home of the Guardian Hellhound]" << endl;
-cout << "\nPlease type in either Midgard or Hel to begin travel to either realms." << endl;
-
-cin >> choice;
-return choice;
-} */
-
 // intros
 // intros
 // intros
