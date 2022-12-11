@@ -36,7 +36,7 @@ double enemyHealthOfBattle = 1;
 bool aliveCheck = true;
 
 string aliveDia = "You rest on your feet after attacking. Do you wish to continue attacking or look through your bag of potions? [Y/N]";
-const char* deathDia = "You can hear pages suddenly flipping around you. You read briefly, \"Norse Mythology\". The book asks you to input your name:";
+const char* deathDia = "It's dead. You can hear pages suddenly flipping around you. You read briefly, \"Norse Mythology\". The book asks you to input your name:";
 
 void initiateBattle(string player, bool alive, double attack, double specialAttack, double health, double defense, double speed, double enemyHealth, double enemyAttack, double enemyHeavyAttack, string enemyName){
 
