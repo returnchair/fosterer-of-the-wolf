@@ -2,4 +2,4 @@
 
 using namespace std;
 
-void enemyBar(double enemeyHealth, double inflictedDmg){
+void enemyBar(double enemeyHealth, double inflictedDmg);
