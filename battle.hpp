@@ -11,3 +11,5 @@ double enemyAttackSequence(double attack, double heavyAttack);
 void magicalPotions(double specialAttack); 
 
 bool updateHealth(double inflictedAttack, double enemyAttack, double enemyHeavyAttack);
+
+void poisonTask(double specialAttack);

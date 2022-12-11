@@ -4,6 +4,7 @@
 #include <thread>
 #include <iostream>
 #include <random>
+#include <thread>
 
 #include "battle.hpp"
 #include "choices.hpp"
@@ -70,7 +71,7 @@ if(aliveCheck == false){
     cout << enemyName << " current health is now: " << enemyHealthOfBattle << endl;
     continue; 
 } else {
-    cout << "\n" << player << ", " << "You have been given the choice to select a potion. You currently have " << skillpoints << " skill points!" << endl;
+    cout << "\n" << player << ", " << "You have been given the choice to select a potion. You currently have " << skillPoints << " skill points!" << endl;
     magicalPotions(specialAttack);
     continue; 
 }
@@ -118,7 +119,7 @@ void magicalPotions(double specialAttack){
     double etherEffectiveness = 2 * specialAttack;
     string option = "";
 
-    cout << "Items in store: " << "\n1. Mark of Health [Brewed in the lands of the giants; sacred and tasty. Restores 50 health upon use and takes away five skill points.] \n2. Ether Gel [Gel discovered through the lands of Asgard. Restores skill points reservoir by five skill points.] \n3. Poisonous Aura [Magicical properties in which allows the consumer to permanently inflict damage on enemies. Uses up thirty skill points.]" << endl;
+    cout << "Items in store: " << "\n\n1. Mark of Health [Brewed in the lands of the giants; sacred and tasty. Restores 50 health upon use and takes away five skill points.] \n\n2. Ether Gel [Gel discovered through the lands of Asgard. Restores skill points reservoir by five skill points.] \n\n3. Poisonous Aura [Magicical properties in which allows the consumer to permanently inflict damage on enemies. Uses up thirty skill points.]" << endl;
     cout << "\nPlease enter a choice of 1, 2, and so on." << endl;
     cin >> option;
 
@@ -126,26 +127,23 @@ void magicalPotions(double specialAttack){
         skillPoints -= 5;
         playerHealthOfBattle += healthEffectiveness;
 
-        cout << "MARK OF HEALTH SELECTED! Your health is now " << playerHealthOfBattle << endl;
+        cout << "\nMARK OF HEALTH SELECTED! Your health is now " << playerHealthOfBattle << endl;
         cout << "Your skill points have been reduced by 5 and is now: " << skillPoints << endl;
     } 
     
     else if(option == "2" && skillPoints >= 5){
         skillPoints += etherEffectiveness;
 
-        cout << "ETHER GEL SELECTED! Your skill points have been added by 5." << endl;
+        cout << "\nETHER GEL SELECTED! Your skill points have been added by 5." << endl;
         cout << "Current skill points: " << skillPoints << endl;
 
     } else if(option == "3" && skillPoints >= 30) {
-        poisonFlag = true;
+        skillPoints -= 30;
 
-        cout << "POISONOUS AURA SELECTED! This aura will inflict 100 damage around you every five seconds." << endl;
+        cout << "\nPOISONOUS AURA SELECTED! This aura will inflict 75 damage around you every five seconds." << endl;
         cout << "Your skill points have been reduced by 30 and is now: " << skillPoints << endl;
 
-        while(poisonFlag == true){
-            sleep_until(system_clock::now() + seconds(5))
-            enemyHealthOfBattle -= 75 * specialAttack;
-        }
+        thread t1(poisonTask, specialAttack);
 
     } else {
         cout << "You picked nothing so this opening was closed or you did not have enough skill points!" << endl;
@@ -167,5 +165,14 @@ if(enemyHealthOfBattle <= 0){
     return false;
 } else {
     return true;
+}
+}
+
+void poisonTask(double specialAttack){
+    bool poisonFlag = true;
+
+    while(poisonFlag == true){
+    sleep_until(system_clock::now() + seconds(5));
+    enemyHealthOfBattle -= 75 * specialAttack;
 }
 }
