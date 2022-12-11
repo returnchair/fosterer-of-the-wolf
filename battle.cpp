@@ -55,12 +55,13 @@ updateHealth(playerInflictedDmg, enemyAttack, enemyHeavyAttack);
 sleep_until(system_clock::now() + seconds(2));
 cout << "\nEnemy current health is now: " << enemyHealthOfBattle << endl;
 
-// aliveDia = aliveDia.replace(0, 22, aliveDia2); 
-
 // while loop for entire enemy fight
 
 bool flag = true;
 while(flag == true){
+
+aliveDia = aliveDia.replace(0, 22, aliveDia2); 
+aliveDia2 = "";
 
 string answer = "";
 sleep_until(system_clock::now() + seconds(2));
