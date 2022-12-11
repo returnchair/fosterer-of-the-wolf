@@ -16,7 +16,7 @@ void enemyBar(double enemyHealth, double inflictedDmg){
         bar.replace(100-i, 1, " "); 
     }
     
-    cout << "Enemy health: " << 100-percentage << "% [ " << bar << " ]" << endl;
+    cout << "\nEnemy health: " << 100-percentage << "% [ " << bar << " ]" << endl;
 
     } else {
         // nothing for now (finalized)

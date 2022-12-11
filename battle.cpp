@@ -171,7 +171,7 @@ bool updateHealth(double inflictedAttack, double enemyAttack, double enemyHeavyA
     playerHealthOfBattle -= enemyAttackSequence(enemyAttack, enemyHeavyAttack);
     enemyHealthOfBattle -= inflictedAttack;
 
-    enemyBar(enemyHealthOfBattle, enemyAttack);
+    enemyBar(enemyHealthOfBattle, inflictedAttack);
 
 if(enemyHealthOfBattle <= 0){
     aliveDia = aliveDia.replace(0, 150, deathDia);
