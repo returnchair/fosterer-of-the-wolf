@@ -128,7 +128,7 @@ void magicalPotions(double specialAttack){
     double etherEffectiveness = 2 * specialAttack;
     string option = "";
 
-    cout << "Items in store: " << "\n\n1. Mark of Health [Brewed in the lands of the giants; sacred and tasty. Restores 50 health upon use and takes away five skill points.] \n\n2. Ether Gel [Gel discovered through the lands of Asgard. Restores skill points reservoir by five skill points.] \n\n3. Poisonous Aura [Magicical properties in which allows the consumer to permanently inflict damage on enemies. Uses up thirty skill points.]" << endl;
+    cout << "Items in store: " << "\n\n1. Mark of Health [Brewed in the lands of the giants; sacred and tasty. Restores 50 health upon use and takes away five skill points.] \n\n2. Ether Gel [Gel discovered through the lands of Asgard. Restores skill points reservoir by five skill points.] \n\n3. Poisonous Aura [Stackable magicical properties in which allows the consumer to permanently inflict damage on enemies. Uses up thirty skill points.]" << endl;
     cout << "\nPlease enter a choice of 1, 2, and so on." << endl;
     cin >> option;
 
