@@ -3,7 +3,7 @@ HEADER_COMPILE = battle.hpp choices.hpp classes.hpp ascii.hpp
 EXTRA_FILES = makefile
 
 compile:
-	g++ $(COMPILE) -o godofwar
+	g++ $(COMPILE) -pthread -o godofwar
 
 zip:
 	zip godofwar.zip $(COMPILE) $(HEADER_COMPILE) $(EXTRA_FILES)

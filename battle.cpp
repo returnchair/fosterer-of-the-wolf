@@ -7,7 +7,8 @@
 #include <thread>
 
 #include "battle.hpp"
-#include "choices.hpp"
+#include "choices.hpp" // dialogue sequences
+#include "ascii.hpp" // ascii sequences
 
 using namespace std;
 using namespace std::this_thread;   // sleep_for, sleep_until
@@ -166,6 +167,8 @@ void magicalPotions(double specialAttack){
 bool updateHealth(double inflictedAttack, double enemyAttack, double enemyHeavyAttack){
     playerHealthOfBattle -= enemyAttackSequence(enemyAttack, enemyHeavyAttack);
     enemyHealthOfBattle -= inflictedAttack;
+
+    enemyBar(double enemyHealthOfBattle, double inflictedAttack);
 
 if(enemyHealthOfBattle <= 0){
     aliveDia = aliveDia.replace(0, 150, deathDia);
