@@ -30,7 +30,6 @@ uniform_int_distribution<int> dist(1,10);
 */
 
 int skillPoints = 10;
-
 double playerHealthOfBattle = 1;
 double enemyHealthOfBattle = 1;
 bool aliveCheck = true;
@@ -46,8 +45,7 @@ enemyHealthOfBattle = enemyHealth;
 sleep_until(system_clock::now() + seconds(3));
 cout << "\nYou strike first!" << endl;
 
-double playerInflictedDmg = attackSequence(attack, specialAttack);
-updateHealth(playerInflictedDmg, enemyAttack, enemyHeavyAttack);
+updateHealth(attackSequence(attack, specialAttack), enemyAttack, enemyHeavyAttack);
 
 sleep_until(system_clock::now() + seconds(2));
 cout << "\nEnemy current health is now: " << enemyHealthOfBattle << endl;
@@ -66,7 +64,7 @@ if(aliveCheck == false){
     deathDialogue(player);
     break;
 } else if(answer == "Y" || answer == "y"){
-    aliveCheck = updateHealth(playerInflictedDmg, enemyAttack, enemyHeavyAttack); 
+    aliveCheck = updateHealth(attackSequence(attack, specialAttack), enemyAttack, enemyHeavyAttack); 
     cout << "\nYour current health is now: " << playerHealthOfBattle << endl;
     cout << enemyName << " current health is now: " << enemyHealthOfBattle << endl;
     continue; 
@@ -114,6 +112,17 @@ double enemyAttackSequence(double attack, double heavyAttack){
 // magicalPotions is a function that gives the user various options of potions
 // magicalPotions runs a check if the player has sufficient enough skillPoints to use a potion
 
+// poisonTask thread call
+
+void poisonTask(double specialAttack){
+    bool poisonFlag = true;
+
+    while(poisonFlag == true){
+    sleep_until(system_clock::now() + seconds(5));
+    enemyHealthOfBattle -= 75 * specialAttack;
+}
+}
+
 void magicalPotions(double specialAttack){
     double healthEffectiveness = 50 * specialAttack;
     double etherEffectiveness = 2 * specialAttack;
@@ -143,7 +152,8 @@ void magicalPotions(double specialAttack){
         cout << "\nPOISONOUS AURA SELECTED! This aura will inflict 75 damage around you every five seconds." << endl;
         cout << "Your skill points have been reduced by 30 and is now: " << skillPoints << endl;
 
-        thread t1(poisonTask, specialAttack);
+        thread task(poisonTask, specialAttack);
+        task.detach(); // runs in bg
 
     } else {
         cout << "You picked nothing so this opening was closed or you did not have enough skill points!" << endl;
@@ -158,21 +168,12 @@ bool updateHealth(double inflictedAttack, double enemyAttack, double enemyHeavyA
     enemyHealthOfBattle -= inflictedAttack;
 
 if(enemyHealthOfBattle <= 0){
-    aliveDia = aliveDia.replace(0, 22, deathDia);
+    aliveDia = aliveDia.replace(0, 150, deathDia);
     return false;
 } else if(playerHealthOfBattle <= 0) {
-    aliveDia = aliveDia.replace(0, 22, deathDia); 
+    aliveDia = aliveDia.replace(0, 150, deathDia); 
     return false;
 } else {
     return true;
-}
-}
-
-void poisonTask(double specialAttack){
-    bool poisonFlag = true;
-
-    while(poisonFlag == true){
-    sleep_until(system_clock::now() + seconds(5));
-    enemyHealthOfBattle -= 75 * specialAttack;
 }
 }
