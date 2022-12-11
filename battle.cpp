@@ -51,6 +51,7 @@ sleep_until(system_clock::now() + seconds(3));
 cout << "\nYou strike first!" << endl;
 
 updateHealth(attackSequence(attack, specialAttack), enemyAttack, enemyHeavyAttack);
+cout << "\nYour current health is now " << round((playerHealthOfBattle/playerHealthOfBattlePercent) * 100) << "%!" << endl; 
 
 // while loop for entire enemy fight
 
@@ -140,7 +141,8 @@ void magicalPotions(double specialAttack){
         skillPoints -= 5;
         playerHealthOfBattle += healthEffectiveness;
 
-        cout << "\nMARK OF HEALTH SELECTED! Your health is now " << playerHealthOfBattle << endl;
+        cout << "\nMARK OF HEALTH SELECTED!";
+        cout << " Your current health is now " << round((playerHealthOfBattle/playerHealthOfBattlePercent) * 100) << "%!" << endl; 
         cout << "Your skill points have been reduced by 5 and is now: " << skillPoints << endl;
     } 
     
@@ -171,8 +173,6 @@ bool updateHealth(double inflictedAttack, double enemyAttack, double enemyHeavyA
     playerHealthOfBattle -= enemyAttackSequence(enemyAttack, enemyHeavyAttack);
     enemyHealthOfBattle -= inflictedAttack;
 
-    enemyBar(enemyHealthOfBattle, inflictedAttack);
-
 if(enemyHealthOfBattle <= 0){
     aliveDia = aliveDia.replace(0, 150, deathDia);
     return false;
@@ -180,6 +180,7 @@ if(enemyHealthOfBattle <= 0){
     aliveDia = aliveDia.replace(0, 150, deathDia); 
     return false;
 } else {
+    enemyBar(enemyHealthOfBattle, inflictedAttack);
     return true;
 }
 }
