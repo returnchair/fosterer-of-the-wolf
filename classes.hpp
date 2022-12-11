@@ -10,7 +10,7 @@ class Thor{
     bool alive;
     string name = "Thor";
    
-    Thor(bool alive1 = true, double attack1 = 5650, double magicAttack1 = 2, double health1 = 6500, double defense1 = 110, double speed1 = 10);
+    Thor(bool alive1 = true, double attack1 = 5650, double magicAttack1 = 2, double health1 = 6500, double defense1 = 1.1, double speed1 = 10);
 
     // bool updatehealth(double heal, double att);
 };
@@ -23,7 +23,7 @@ class Tyr{
     bool alive;
     string name = "Tyr";
 
-    Tyr(bool alive1 = true, double attack = 5350, double magicAttack1 = 5, double health1 = 2500, double defense1 = 140, double speed1 = 10);
+    Tyr(bool alive1 = true, double attack = 5350, double magicAttack1 = 5, double health1 = 2500, double defense1 = 1.2, double speed1 = 10);
 };
 
 // enemies

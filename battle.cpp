@@ -28,22 +28,18 @@ uniform_int_distribution<int> dist(1,10);
     *   If player is dead (checked through while loop) -> death dialogue is called and while loop reaks
 */
 
-// defense/block/resistance against dmg
-// poison/elemental status
-
 int skillPoints = 10;
 
 double playerHealthOfBattle = 1;
 double enemyHealthOfBattle = 1;
 bool aliveCheck = true;
 
-string aliveDia = "Continue attack? [Y/N]";
+string aliveDia = "You rest on your feet after attacking. Do you wish to continue attacking or look through your bag of potions? [Y/N]";
 const char* deathDia = "You can hear pages suddenly flipping around you. You read briefly, \"Norse Mythology\". The book asks you to input your name:";
-const char* aliveDia2 = "You rest on your feet after attacking. Do you wish to continue attacking or look through your bag of potions? [Y/N]";
 
 void initiateBattle(string player, bool alive, double attack, double specialAttack, double health, double defense, double speed, double enemyHealth, double enemyAttack, double enemyHeavyAttack, string enemyName){
 
-playerHealthOfBattle = health;
+playerHealthOfBattle = health * defense; // compensate defense stat
 enemyHealthOfBattle = enemyHealth;
 
 sleep_until(system_clock::now() + seconds(3));
@@ -60,9 +56,6 @@ cout << "\nEnemy current health is now: " << enemyHealthOfBattle << endl;
 bool flag = true;
 while(flag == true){
 
-aliveDia = aliveDia.replace(0, 22, aliveDia2); 
-aliveDia2 = "";
-
 string answer = "";
 sleep_until(system_clock::now() + seconds(2));
 cout << "\n" << aliveDia << endl;
@@ -77,7 +70,7 @@ if(aliveCheck == false){
     cout << enemyName << " current health is now: " << enemyHealthOfBattle << endl;
     continue; 
 } else {
-    cout << "\n" << player << ", " << "You have been given the choice to select a potion. Your skillpoints (current: " << skillPoints << ") has an impact on how much you heal by! Make sure to balance it out." << endl;
+    cout << "\n" << player << ", " << "You have been given the choice to select a potion. You currently have " << skillpoints << " skill points!" << endl;
     magicalPotions(specialAttack);
     continue; 
 }
@@ -86,26 +79,23 @@ if(aliveCheck == false){
 
 // player attack enemy 
 
-// show inflictedDmg against enemy
-// type of attacks?
-// randomized dmg?
-
 double attackSequence(double attack, double specialAttack){
     double inflictedDmg = attack;
     int crit = dist(rd);
 
     if (crit == 10){
          double inflictedDmg = attack + 150;
+         cout << "[!] You inflicted " << inflictedDmg << " damage! You also hit a critical and applied 150 bonus damage." << endl;
+         skillPoints += 5;
          return inflictedDmg;
      } else {
-         return inflictedDmg;
+        cout << "[!] You inflicted " << inflictedDmg << " damage!" << endl;
+        skillPoints += 2;
+        return inflictedDmg;
       }
 }
 
 // enemy attack player
-
-// show inflictedDmg against enemy
-// randomized dmg?
 
 double enemyAttackSequence(double attack, double heavyAttack){
     double inflictedDmg = attack;
@@ -124,11 +114,11 @@ double enemyAttackSequence(double attack, double heavyAttack){
 // magicalPotions runs a check if the player has sufficient enough skillPoints to use a potion
 
 void magicalPotions(double specialAttack){
-    double healthEffectiveness = 25 * specialAttack;
+    double healthEffectiveness = 50 * specialAttack;
     double etherEffectiveness = 2 * specialAttack;
     string option = "";
 
-    cout << "Items in store: " << "\nMark of Health [Restores 25 health] \nEther Gel [Restores skill points reservoir by 5]" << endl;
+    cout << "Items in store: " << "\n1. Mark of Health [Brewed in the lands of the giants; sacred and tasty. Restores 50 health upon use and takes away five skill points.] \n2. Ether Gel [Gel discovered through the lands of Asgard. Restores skill points reservoir by five skill points.] \n3. Poisonous Aura [Magicical properties in which allows the consumer to permanently inflict damage on enemies. Uses up thirty skill points.]" << endl;
     cout << "\nPlease enter a choice of 1, 2, and so on." << endl;
     cin >> option;
 
@@ -146,11 +136,19 @@ void magicalPotions(double specialAttack){
         cout << "ETHER GEL SELECTED! Your skill points have been added by 5." << endl;
         cout << "Current skill points: " << skillPoints << endl;
 
-    } else if(skillPoints <= 4){
-        cout << "You do not have enough skill points to use a potion." << endl;
+    } else if(option == "3" && skillPoints >= 30) {
+        poisonFlag = true;
+
+        cout << "POISONOUS AURA SELECTED! This aura will inflict 100 damage around you every five seconds." << endl;
+        cout << "Your skill points have been reduced by 30 and is now: " << skillPoints << endl;
+
+        while(poisonFlag == true){
+            sleep_until(system_clock::now() + seconds(5))
+            enemyHealthOfBattle -= 75 * specialAttack;
+        }
 
     } else {
-        cout << "You picked nothing so this opening was closed!" << endl;
+        cout << "You picked nothing so this opening was closed or you did not have enough skill points!" << endl;
     }
 }
 
