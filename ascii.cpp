@@ -13,7 +13,7 @@ void enemyBar(double enemyHealth, double inflictedDmg){
     if(percentage <= 100 && percentage >= 0){
 
     for(double i = 0; i < percentage; i++){
-        bar.replace(100-i, 1, " "); // well aware that i can do 100-i to make it look nicer, but it came with some issues that i was too lazy to fix
+        bar.replace(100-i, 1, " "); 
     }
     
     cout << "Enemy health: " << 100-percentage << "% [ " << bar << " ]" << endl;
@@ -22,6 +22,4 @@ void enemyBar(double enemyHealth, double inflictedDmg){
         // nothing for now (finalized)
     }
 }
-                                                                          
-
                                                                           

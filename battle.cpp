@@ -5,6 +5,7 @@
 #include <iostream>
 #include <random>
 #include <thread>
+#include <cmath>
 
 #include "battle.hpp"
 #include "choices.hpp" // dialogue sequences
@@ -32,24 +33,24 @@ uniform_int_distribution<int> dist(1,10);
 
 int skillPoints = 10;
 double playerHealthOfBattle = 1;
+double playerHealthOfBattlePercent = 2;
+
 double enemyHealthOfBattle = 1;
 bool aliveCheck = true;
 
 string aliveDia = "You rest on your feet after attacking. Do you wish to continue attacking or look through your bag of potions? [Y/N]";
-const char* deathDia = "It's dead. You can hear pages suddenly flipping around you. You read briefly, \"Norse Mythology\". The book asks you to input your name:";
+const char* deathDia = "You can hear pages suddenly flipping around you. You read briefly, \"Norse Mythology\". The book asks you to input your name:";
 
 void initiateBattle(string player, bool alive, double attack, double specialAttack, double health, double defense, double speed, double enemyHealth, double enemyAttack, double enemyHeavyAttack, string enemyName){
 
 playerHealthOfBattle = health * defense; // compensate defense stat
+playerHealthOfBattlePercent = health * defense; // variable used to calculate health percentage for player
 enemyHealthOfBattle = enemyHealth;
 
 sleep_until(system_clock::now() + seconds(3));
 cout << "\nYou strike first!" << endl;
 
 updateHealth(attackSequence(attack, specialAttack), enemyAttack, enemyHeavyAttack);
-
-sleep_until(system_clock::now() + seconds(2));
-cout << "\nEnemy current health is now: " << enemyHealthOfBattle << endl;
 
 // while loop for entire enemy fight
 
@@ -66,8 +67,8 @@ if(aliveCheck == false){
     break;
 } else if(answer == "Y" || answer == "y"){
     aliveCheck = updateHealth(attackSequence(attack, specialAttack), enemyAttack, enemyHeavyAttack); 
-    cout << "\nYour current health is now: " << playerHealthOfBattle << endl;
-    cout << enemyName << " current health is now: " << enemyHealthOfBattle << endl;
+    cout << "\nYour current health is now " << round((playerHealthOfBattle/playerHealthOfBattlePercent) * 100) << "%!" << endl;               
+    // cout << enemyName << " current health is now: " << enemyHealthOfBattle << endl;          // replaced by ascii boss bar :)
     continue; 
 } else {
     cout << "\n" << player << ", " << "You have been given the choice to select a potion. You currently have " << skillPoints << " skill points!" << endl;
@@ -103,9 +104,11 @@ double enemyAttackSequence(double attack, double heavyAttack){
 
     if (crit == 10){
          double inflictedDmg = attack * (heavyAttack/150);
+         cout << "\n[!] Enemy inflicted " << inflictedDmg << " damage! Enemy also hit a critical!" << endl;
          return inflictedDmg;
 
      } else {
+        cout << "\n[!] Enemy inflicted " << inflictedDmg << " damage!" << endl;
          return inflictedDmg;
       }
 }
@@ -168,7 +171,7 @@ bool updateHealth(double inflictedAttack, double enemyAttack, double enemyHeavyA
     playerHealthOfBattle -= enemyAttackSequence(enemyAttack, enemyHeavyAttack);
     enemyHealthOfBattle -= inflictedAttack;
 
-    enemyBar(enemyHealthOfBattle, inflictedAttack);
+    enemyBar(enemyHealthOfBattle, enemyAttack);
 
 if(enemyHealthOfBattle <= 0){
     aliveDia = aliveDia.replace(0, 150, deathDia);
