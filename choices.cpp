@@ -67,24 +67,24 @@ void deathDialogue(string character){
 }
 
 void ThorEnding(){
-    sleep_until(system_clock::now() + seconds(3));
+    sleep_until(system_clock::now() + seconds(4));
     cout << "\nThe God of Thunder fought a hard battle against Jormungandr; however, the God of Thunder was victorious." << endl;
-    sleep_until(system_clock::now() + seconds(3));
+    sleep_until(system_clock::now() + seconds(4));
     cout << "Thor suddenly feels a sharp pain. The poison from Jormugandr went unnoticed. Thor gets back up then takes nine steps foward then falls to his" << bold_on << " death." << bold_off << endl;
-    sleep_until(system_clock::now() + seconds(3));
+    sleep_until(system_clock::now() + seconds(4));
     cout << "\nThrough the outcome of the death of Thor, many tragic events are now to come per prophecy." << endl;
-    sleep_until(system_clock::now() + seconds(3));
+    sleep_until(system_clock::now() + seconds(4));
     cout << "\nOnce the God of Thunder dies, Loki and the God, Heimdall, strikes at eachother's throats. Freyr is killed by Surtr, and the gods Mani and Solveig are slain by Skoll and Hati." << endl;
 }
 
 void TyrEnding(){
-    sleep_until(system_clock::now() + seconds(3));
+    sleep_until(system_clock::now() + seconds(4));
     cout << "\nThe God of War faught a tough battle against Garm. The God of War manages to kill the guard dog of Hel." << endl;
-    sleep_until(system_clock::now() + seconds(3));
+    sleep_until(system_clock::now() + seconds(4));
     cout << "\nTyr suddenly feels a sharp pain. A curse was put onto him, a forbidden curse that kills whoever it's on. Tyr falls to his" << bold_on << " death." << bold_off << endl;
-    sleep_until(system_clock::now() + seconds(3));
+    sleep_until(system_clock::now() + seconds(4));
     cout << "\nChain of events occur around the realms of Hel. Ragnarok arrives. The worst that was feared is happening." << endl;
-    sleep_until(system_clock::now() + seconds(3));
+    sleep_until(system_clock::now() + seconds(4));
     cout << "\nLoki, Hemidall, Thor, and Freyr arrives at the scene of Garm. Tyr is seen lying on the ground of Hel dead." << endl;
 
 }
