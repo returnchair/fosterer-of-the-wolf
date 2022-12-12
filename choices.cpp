@@ -35,6 +35,7 @@ void Intro(){ // does not return
 // intros
 
 void GarmIntro(){
+    sleep_until(system_clock::now() + seconds(5));
     cout << "\nAs Tyr arrives to the gates of hel trying to prevent Ragnarok, Tyr stops in his place hearing something sneaking up from behind him." << endl;
     sleep_until(system_clock::now() + seconds(3));
     cout << "\n**Swoosh** He turns around expecting to see something horrific but nothing is there." << endl;
@@ -49,6 +50,7 @@ void GarmIntro(){
 }
 
 void SnakeIntro(){
+        sleep_until(system_clock::now() + seconds(5));
         cout << "\nThor arrives to the realm of Midgard preapared to fight The World Serpent. Walking around looking for this snake he starts to get furious, so he yells \"Come out snake I only want to talk\"." << endl;
         sleep_until(system_clock::now() + seconds(3));
         cout << "\nWith a slight smirk on his face, he looks left then slowly looks right. Aware that the snake is following behind him he continues to forward." << endl;

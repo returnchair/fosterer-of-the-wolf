@@ -22,6 +22,8 @@ if(choice == "Midgard" || choice == "midgard"){
         chosenCharacter = "Thor";
         Jormungandr two;
 
+        midgardAsciiIntro();
+
         SnakeIntro();
         initiateBattle(chosenCharacter, one.alive, one.attack, one.magicAttack, one.health, one.defense, one.speed, two.health, two.attack, two.heavyAttack, "Jormungandr");
         
@@ -29,6 +31,8 @@ if(choice == "Midgard" || choice == "midgard"){
         Tyr one;
         chosenCharacter = "Tyr";
         Garm two;
+
+        helAsciiIntro()
 
         GarmIntro();
         initiateBattle(chosenCharacter, one.alive, one.attack, one.magicAttack, one.health, one.defense, one.speed, two.health, two.attack, two.heavyAttack, "Garm");
