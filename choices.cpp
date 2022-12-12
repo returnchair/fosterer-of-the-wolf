@@ -26,13 +26,9 @@ std::ostream& bold_off(std::ostream& os)
 // game intro
 // game intro
 
-void Intro(){ // does not return
+void Intro(){ 
     cout << "\nWelcome to Fosterer of the Wolf and Serpent." << endl;
 }
-
-// intros
-// intros
-// intros
 
 void GarmIntro(){
     sleep_until(system_clock::now() + seconds(5));

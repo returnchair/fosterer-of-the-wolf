@@ -1,8 +1,9 @@
 #include <iostream>
 
-#include "choices.hpp" // dialogue
-#include "classes.hpp" // player class
-#include "battle.hpp" // battle sequence
+#include "choices.hpp"    // dialogue
+#include "classes.hpp"    // player class
+#include "battle.hpp"     // battle sequence
+#include "ascii.hpp"      // ascii art for dialogue improvements
 
 using namespace std;
 
@@ -32,7 +33,7 @@ if(choice == "Midgard" || choice == "midgard"){
         chosenCharacter = "Tyr";
         Garm two;
 
-        helAsciiIntro()
+        helAsciiIntro();
 
         GarmIntro();
         initiateBattle(chosenCharacter, one.alive, one.attack, one.magicAttack, one.health, one.defense, one.speed, two.health, two.attack, two.heavyAttack, "Garm");
@@ -46,8 +47,10 @@ if(choice == "Midgard" || choice == "midgard"){
 if(chosenCharacter == "Tyr"){
     TyrEnding();
     RollCredits();
+    deathAndIntroAscii();
 } else if (chosenCharacter == "Thor"){
     ThorEnding();
     RollCredits();
+    deathAndIntroAscii();
 }
 }

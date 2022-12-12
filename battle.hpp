@@ -10,6 +10,6 @@ double enemyAttackSequence(double attack, double heavyAttack);
 
 void magicalPotions(double specialAttack); 
 
-bool updateHealth(double inflictedAttack, double enemyAttack, double enemyHeavyAttack);
+bool updateHealth(double inflictedAttack, double enemyAttack, double enemyHeavyAttack, string enemyType);
 
 void poisonTask(double specialAttack);

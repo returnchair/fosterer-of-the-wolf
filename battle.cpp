@@ -50,7 +50,7 @@ enemyHealthOfBattle = enemyHealth;
 sleep_until(system_clock::now() + seconds(3));
 cout << "\nYou strike first!" << endl;
 
-updateHealth(attackSequence(attack, specialAttack), enemyAttack, enemyHeavyAttack);
+updateHealth(attackSequence(attack, specialAttack), enemyAttack, enemyHeavyAttack, enemyName);
 cout << "\nYour current health is now " << round((playerHealthOfBattle/playerHealthOfBattlePercent) * 100) << "%!" << endl; 
 
 // while loop for entire enemy fight
@@ -67,7 +67,7 @@ if(aliveCheck == false){
     deathDialogue(player);
     break;
 } else if(answer == "Y" || answer == "y"){
-    aliveCheck = updateHealth(attackSequence(attack, specialAttack), enemyAttack, enemyHeavyAttack); 
+    aliveCheck = updateHealth(attackSequence(attack, specialAttack), enemyAttack, enemyHeavyAttack, enemyName); 
     cout << "\nYour current health is now " << round((playerHealthOfBattle/playerHealthOfBattlePercent) * 100) << "%!" << endl;               
     // cout << enemyName << " current health is now: " << enemyHealthOfBattle << endl;          // replaced by ascii boss bar :)
     continue; 
@@ -169,7 +169,7 @@ void magicalPotions(double specialAttack){
 // updateHealth is a function that receives parameters to determine the player's and enemys health after an attack from both characters
 // updateHealth returns a false & replaces intitial while loop dialogue if player or enemy is dead
 
-bool updateHealth(double inflictedAttack, double enemyAttack, double enemyHeavyAttack){
+bool updateHealth(double inflictedAttack, double enemyAttack, double enemyHeavyAttack, string enemyType){
     playerHealthOfBattle -= enemyAttackSequence(enemyAttack, enemyHeavyAttack);
     enemyHealthOfBattle -= inflictedAttack;
 
@@ -180,7 +180,7 @@ if(enemyHealthOfBattle <= 0){
     aliveDia = aliveDia.replace(0, 150, deathDia); 
     return false;
 } else {
-    enemyBar(enemyHealthOfBattle, inflictedAttack);
+    enemyBar(enemyHealthOfBattle, inflictedAttack, enemyType);
     return true;
 }
 }
