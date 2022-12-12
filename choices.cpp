@@ -82,7 +82,10 @@ void TyrEnding(){
     cout << "\nThe God of War faught a tough battle against Garm. The God of War manages to kill the guard dog of Hel." << endl;
     sleep_until(system_clock::now() + seconds(3));
     cout << "\nTyr suddenly feels a sharp pain. A curse was put onto him, a forbidden curse that kills whoever it's on. Tyr falls to his" << bold_on << " death." << bold_off << endl;
-    cout << "Loki, Hemidall, Thor, Freyr as Ragnarok arrives." << endl;
+    sleep_until(system_clock::now() + seconds(3));
+    cout << "\nChain of events occur around the realms of Hel. Ragnarok arrives. The worst that was feared is happening." << endl;
+    sleep_until(system_clock::now() + seconds(3));
+    cout << "\nLoki, Hemidall, Thor, and Freyr arrives at the scene of Garm. Tyr is seen lying on the ground of Hel dead." << endl;
 
 }
 
