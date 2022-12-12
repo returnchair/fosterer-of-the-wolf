@@ -32,7 +32,7 @@ void Intro(){
 
 void GarmIntro(){
     sleep_until(system_clock::now() + seconds(5));
-    cout << "\nAs Tyr arrives to the gates of hel trying to prevent Ragnarok, Tyr stops in his place hearing something sneaking up from behind him." << endl;
+    cout << "\nTyr arrives to the gates of Hel in an attempt to prevent Ragnarok. Something sneaks up behind him," << endl;
     sleep_until(system_clock::now() + seconds(3));
     cout << "\n**Swoosh** He turns around expecting to see something horrific but nothing is there." << endl;
     sleep_until(system_clock::now() + seconds(3));
@@ -42,20 +42,20 @@ void GarmIntro(){
     sleep_until(system_clock::now() + seconds(3));
     cout << "\nTyr looks at Garm realizing that he is chained to the gates of Hel. Thinking he is safe he tries to walk around but all of a sudden **snap** " << endl;
     sleep_until(system_clock::now() + seconds(3));
-    cout << "\nThe chains keeping garm near the gates snap and Garm is now free." << endl;
+    cout << "\nThe chains keeping Garm near the gates snap and Garm is now free." << endl;
 }
 
 void SnakeIntro(){
         sleep_until(system_clock::now() + seconds(5));
-        cout << "\nThor arrives to the realm of Midgard preapared to fight The World Serpent. Walking around looking for this snake he starts to get furious, so he yells \"Come out snake I only want to talk\"." << endl;
+        cout << "\nThor arrives to the realm of Midgard preapared to fight the World Serpent. Walking around looking for this snake he starts to get furious, so he yells \"Come out snake I only want to talk\"." << endl;
         sleep_until(system_clock::now() + seconds(3));
         cout << "\nWith a slight smirk on his face, he looks left then slowly looks right. Aware that the snake is following behind him he continues to forward." << endl;
         sleep_until(system_clock::now() + seconds(3));
         cout << "\nThe world serpent thinking he can finally get the drop on Thor, the snake jumps up and tries to land on Thor." << endl;
         sleep_until(system_clock::now() + seconds(3));
-        cout << "\n\"It's about damn time\" as he realeses his hammer upward hitting the serpent from the jaw and sending it flying backwards. Thor walks toward the serpent ready to fight and yells \"Bring it snake\".  " << endl;
+        cout << "\n\"It's about damn time\" as he realeses his hammer upward hitting the Serpent from the jaw and sending it flying backwards. Thor walks toward the Serpent ready to fight and yells \"Bring it snake\"." << endl;
         sleep_until(system_clock::now() + seconds(3));
-        cout << "\nThe serpent lets out a piercing roar, then Thor get into his battle stance" << endl;
+        cout << "\nThe Serpent lets out a piercing roar, then Thor get into his battle stance." << endl;
 }
 
 // endings
@@ -64,25 +64,24 @@ void SnakeIntro(){
 
 void deathDialogue(string character){
     cout << "\nThe book flies away. You blink. You can see your character, " << character << ". You are outside of your body. You are a soul." << endl;
-    sleep_until(system_clock::now() + seconds(1));
-    cout << "\n" << character << " feels a sharp pain." << endl;
 }
 
 void ThorEnding(){
     sleep_until(system_clock::now() + seconds(3));
-    cout << "\nThe God of Thunder fought a hard battle against Jormungandr; however, the God of Thunder was victorious, but the poison from the serpent slowly succumbs him." << endl;
+    cout << "\nThe God of Thunder fought a hard battle against Jormungandr; however, the God of Thunder was victorious." << endl;
     sleep_until(system_clock::now() + seconds(3));
-    cout << "He gets back up thentakes nine steps foward then falls to his" << bold_on << " death." << bold_off << endl;
+    cout << "Thor suddenly feels a sharp pain. The poison from Jormugandr went unnoticed. Thor gets back up then takes nine steps foward then falls to his" << bold_on << " death." << bold_off << endl;
     sleep_until(system_clock::now() + seconds(3));
-    cout << "\nThrough the outcome of the death of Thor many tragic events come to past." << endl;
+    cout << "\nThrough the outcome of the death of Thor, many tragic events are now to come per prophecy." << endl;
     sleep_until(system_clock::now() + seconds(3));
-    cout << "Once the God of Thunder dies, Loki and the God Heimdall strikes at eachother's throats, Freyr is killed by Surtr, and the gods Mani and Solveig are slain by Skoll and Hati." << endl;
+    cout << "\nOnce the God of Thunder dies, Loki and the God, Heimdall, strikes at eachother's throats. Freyr is killed by Surtr, and the gods Mani and Solveig are slain by Skoll and Hati." << endl;
 }
 
 void TyrEnding(){
     sleep_until(system_clock::now() + seconds(3));
-    cout << "\nThe God of War faught a tough battle against Garmr. The God of War manages to kill the guard dog of hel. With the death of the gods" << endl;
+    cout << "\nThe God of War faught a tough battle against Garm. The God of War manages to kill the guard dog of Hel." << endl;
     sleep_until(system_clock::now() + seconds(3));
+    cout << "\nTyr suddenly feels a sharp pain. A curse was put onto him, a forbidden curse that kills whoever it's on. Tyr falls to his" << bold_on << " death." << bold_off << endl;
     cout << "Loki, Hemidall, Thor, Freyr as Ragnarok arrives." << endl;
 
 }
@@ -90,7 +89,8 @@ void TyrEnding(){
 void RollCredits(){
     sleep_until(system_clock::now() + seconds(3));
     cout << "\nThank you user for playing our game Fosterer of the Wolf." << endl;
-    cout << "This project game was made for a semester project. Hope you enjoyed the game! Goodbye!" << endl;
+    sleep_until(system_clock::now() + seconds(3));
+    cout << "This CLI-based game was made for a semester project to understand all beginning concepts of C++. Hope you enjoyed the game! Goodbye!" << endl;
 }
 
     
