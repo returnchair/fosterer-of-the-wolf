@@ -1,3 +1,14 @@
+/*
+    Logic behind battle.cpp:
+    *   Battle begins off a initiateBattle function being called from main.cpp
+    *   Skill points represent how much a player can use a potion. Refer to the magicPotions() function to see types of potions and how many skillpoints are deducted/added. Skillpoints can also come from simply attacking.
+    *   Player will strike first onto enemy. updateHealth() and all player/enemyattackSequences() are called whenever a attack is done on the enemy given. 
+    
+    *   If player inputs N for "aliveDia (the dialogue given to continue an attack)" magicalPotions() will be called.
+    *   If player inputs Y for "aliveDia" updatehealth() (and player/enemyattackSequences()) will be called.
+    *   If player is dead (checked through while loop), player will receive death dialogues (choices.cpp) as well as some extras like ascii art.
+*/
+
 #include <string>
 #include <stdlib.h>
 #include <chrono>
@@ -20,23 +31,14 @@ random_device sp;
 uniform_int_distribution<int> skill(1,20);
 uniform_int_distribution<int> dist(1,10);
 
-/*
-    Logic behind battle.cpp:
-    *   Battle begins off a initiateBattle function being called from main.cpp
-    *   Skill points represent how much a player can use a potion incremented by 5
-    *   Player will strike first onto enemy / an update health function is present within battle.cpp that checks if either enemy or player's health is below 0 and then replaces the ddialogue for "Continue attack [Y/N]" 
-    
-    *   If player inputs N for "Continue attack [Y/N]" magicalPotions function will be called
-    *   If player inputs Y for "Continue attack [Y/N]" updatehealth function will be called 
-    *   If player is dead (checked through while loop) -> death dialogue is called and while loop reaks
-*/
-
 int skillPoints = 10;
 double playerHealthOfBattle = 1;
 double playerHealthOfBattlePercent = 2;
 
 double enemyHealthOfBattle = 1;
 bool aliveCheck = true;
+
+// string aliveDia is replaced with const char* deathDia if either player or enemy is dead 
 
 string aliveDia = "You rest on your feet after attacking. Do you wish to continue attacking or look through your bag of potions? [Y/N]";
 const char* deathDia = "You can hear pages suddenly flipping around you. You read briefly, \"Norse Mythology\". The book asks you to input your name:";
@@ -79,7 +81,7 @@ if(aliveCheck == false){
 }
 }
 
-// player attack enemy 
+// player attack enemy sequence
 
 double attackSequence(double attack, double specialAttack){
     double inflictedDmg = attack;
@@ -97,7 +99,7 @@ double attackSequence(double attack, double specialAttack){
       }
 }
 
-// enemy attack player
+// enemy attack player sequence
 
 double enemyAttackSequence(double attack, double heavyAttack){
     double inflictedDmg = attack;
@@ -115,9 +117,9 @@ double enemyAttackSequence(double attack, double heavyAttack){
 }
 
 // magicalPotions is a function that gives the user various options of potions
-// magicalPotions runs a check if the player has sufficient enough skillPoints to use a potion
+// magicalPotions runs a check if the player has sufficient enough skill points to use a potion
 
-// poisonTask thread call
+// poisonTask thread call to run in background if potion is used
 
 void poisonTask(double specialAttack){
     bool poisonFlag = true;
@@ -159,15 +161,16 @@ void magicalPotions(double specialAttack){
         cout << "Your skill points have been reduced by 30 and is now: " << skillPoints << endl;
 
         thread task(poisonTask, specialAttack);
-        task.detach(); // runs in bg
+        task.detach(); 
 
     } else {
         cout << "You picked nothing so this opening was closed or you did not have enough skill points!" << endl;
     }
 }
 
-// updateHealth is a function that receives parameters to determine the player's and enemys health after an attack from both characters
-// updateHealth returns a false & replaces intitial while loop dialogue if player or enemy is dead
+// updateHealth is a function that receives parameters to determine the player's and enemys health after an attack from both the player and enemy
+// updateHealth returns a false & replaces intitial aliveDia dialogue if player or enemy is dead, otherwise, it would return true
+// updateHealth calls to both choices.cpp and ascii.cpp
 
 bool updateHealth(double inflictedAttack, double enemyAttack, double enemyHeavyAttack, string enemyType){
     playerHealthOfBattle -= enemyAttackSequence(enemyAttack, enemyHeavyAttack);
