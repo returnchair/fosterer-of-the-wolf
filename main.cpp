@@ -1,3 +1,16 @@
+/*
+    Welcome to Fosterer of the Wolf source code!
+    
+    Contributions:
+    *   ****, programmed classes  
+    *   ****, programmed dialogue
+    *   ****, programmed battle-related code
+    *   ****, assembled the code and programmed ascii
+    
+    Please keep in mind, any modifcations may break the code if not modified correctly.
+    For example, please make sure to look through header and all mentions of the before-modified code.
+*/
+
 #include <iostream>
 
 #include "choices.hpp"    // dialogue
