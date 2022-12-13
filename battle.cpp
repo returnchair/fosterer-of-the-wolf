@@ -146,9 +146,8 @@ void magicalPotions(double specialAttack){
         cout << "\nMARK OF HEALTH SELECTED!";
         cout << " Your current health is now " << round((playerHealthOfBattle/playerHealthOfBattlePercent) * 100) << "%!" << endl; 
         cout << "Your skill points have been reduced by 5 and is now: " << skillPoints << endl;
-    } 
-    
-    else if(option == "2" && skillPoints >= 5){
+        
+    } else if(option == "2" && skillPoints >= 5){
         skillPoints += etherEffectiveness;
 
         cout << "\nETHER GEL SELECTED! Your skill points have been added by 5." << endl;
