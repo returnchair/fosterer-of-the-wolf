@@ -78,6 +78,9 @@ void deathAndIntroAscii(){
     )" << endl;
 }
 
+// enemyBar function receives parameters from battle.cpp and calculates a percentage
+// once a percentage is received, a "boss bar" is modified to fit the percentage given; the bar has and requires 100 characters
+
 void enemyBar(double enemyHealth, double inflictedDmg, string enemyType){
     double percentage = round(inflictedDmg/enemyHealth * 100);
     string bar = "****************************************************************************************************"; 
