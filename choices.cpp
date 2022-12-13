@@ -70,7 +70,7 @@ void ThorEnding(){
     sleep_until(system_clock::now() + seconds(4));
     cout << "\nThe God of Thunder fought a hard battle against Jormungandr; however, the God of Thunder was victorious." << endl;
     sleep_until(system_clock::now() + seconds(4));
-    cout << "Thor suddenly feels a sharp pain. The poison from Jormugandr went unnoticed. Thor gets back up then takes nine steps foward then falls to his" << bold_on << " death." << bold_off << endl;
+    cout << "\nThor suddenly feels a sharp pain. The poison from Jormugandr went unnoticed. Thor gets back up then takes nine steps foward then falls to his" << bold_on << " death." << bold_off << endl;
     sleep_until(system_clock::now() + seconds(4));
     cout << "\nThrough the outcome of the death of Thor, many tragic events are now to come per prophecy." << endl;
     sleep_until(system_clock::now() + seconds(4));
